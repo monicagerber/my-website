@@ -3,12 +3,19 @@ title: Hello, world!
 author: Monica Gerber
 date: '2018-01-29'
 categories:
-  - features
+  - about-me
 tags:
-  - rmarkdown
+  - website
 slug: hello-world
 ---
 
-# Hi
+# About my work
 
-This is a test post!
+My name is Monica Gerber and I am a Biostatistician located in Boston, Massachusetts. I have worked at Massachussetts General Hospital (MGH) since January 2015, when I joined the Department of Psychiatry to work in a research group focused on population mental health. Currently, I work in [General Academic Pediatrics](http://www.massgeneral.org/children/research/researchlab.aspx?id=1577) and the [Center for Community Health Improvement](http://www.massgeneral.org/cchi/) (CCHI).
+
+At MGH I have the pleasure of working on many research and evaluation projects. In General Academic Pediatrics, I work for Dr. Taveras on several maternal and childhood obesity research studies. At CCHI, I help the evaluation team develop statistical analyses to understand the public health status of Boston's communities and to evaluate prevention efforts. I am also the Principal Investigator of the Health Starts at Home implementation study which provides services to stabilize housing.
+
+
+# Why this blog?
+
+I learned how to use SAS in graduate school when I was earning my M.P.H. at Boston University School of Public Health. I later started to learn R and SQL on the job. I find programming in R to be a joy and I hope to explore everything related to R and public health on this blog.

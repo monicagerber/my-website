@@ -8,17 +8,18 @@
   </url>
   
   <url>
+    <loc>/categories/about-me/</loc>
+    <lastmod>2018-01-29T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/archives/</loc>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/categories/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/categories/features/</loc>
     <lastmod>2018-01-29T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>

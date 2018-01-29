@@ -6,16 +6,17 @@
     <description>Recent content in Categories on Monica W. Gerber</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <lastBuildDate>Mon, 29 Jan 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Features</title>
-      <link>/categories/features/</link>
+      <title>About Me</title>
+      <link>/categories/about-me/</link>
       <pubDate>Mon, 29 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>/categories/features/</guid>
+      <guid>/categories/about-me/</guid>
       <description></description>
     </item>
     
