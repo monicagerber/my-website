@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Website on Monica W. Gerber</title>
-    <link>/tags/website/</link>
+    <link>http://www.monicagerber.com/tags/website/</link>
     <description>Recent content in Website on Monica W. Gerber</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 29 Jan 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/website/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://www.monicagerber.com/tags/website/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Hello, world!</title>
-      <link>/2018/01/hello-world/</link>
+      <link>http://www.monicagerber.com/2018/01/hello-world/</link>
       <pubDate>Mon, 29 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/01/hello-world/</guid>
+      <guid>http://www.monicagerber.com/2018/01/hello-world/</guid>
       <description>About my work My name is Monica Gerber and I am a Biostatistician located in Boston, Massachusetts. I have worked at Massachusetts General Hospital (MGH) since January 2015, when I joined the Department of Psychiatry to work in a research group focused on population mental health. Currently, I work in General Academic Pediatrics and the Center for Community Health Improvement (CCHI).
 At MGH I have the pleasure of working on many research and evaluation projects.</description>
     </item>

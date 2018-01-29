@@ -88,7 +88,7 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 [[menu.links]]
   weight = 7
   identifier = "twitter"
-  name = "Twitter
+  name = "Twitter"
   pre = "<i class=\"sidebar-button-icon fa fa-lg fa-twitter-square\"></i>"
   url = "https://twitter.com/mwgerber"  
 
