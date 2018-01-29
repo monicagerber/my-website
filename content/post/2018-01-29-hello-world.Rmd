@@ -11,7 +11,7 @@ slug: hello-world
 
 # About my work
 
-My name is Monica Gerber and I am a Biostatistician located in Boston, Massachusetts. I have worked at Massachussetts General Hospital (MGH) since January 2015, when I joined the Department of Psychiatry to work in a research group focused on population mental health. Currently, I work in [General Academic Pediatrics](http://www.massgeneral.org/children/research/researchlab.aspx?id=1577) and the [Center for Community Health Improvement](http://www.massgeneral.org/cchi/) (CCHI).
+My name is Monica Gerber and I am a Biostatistician located in Boston, Massachusetts. I have worked at Massachusetts General Hospital (MGH) since January 2015, when I joined the Department of Psychiatry to work in a research group focused on population mental health. Currently, I work in [General Academic Pediatrics](http://www.massgeneral.org/children/research/researchlab.aspx?id=1577) and the [Center for Community Health Improvement](http://www.massgeneral.org/cchi/) (CCHI).
 
 At MGH I have the pleasure of working on many research and evaluation projects. In General Academic Pediatrics, I work for Dr. Taveras on several maternal and childhood obesity research studies. At CCHI, I help the evaluation team develop statistical analyses to understand the public health status of Boston's communities and to evaluate prevention efforts. I am also the Principal Investigator of the Health Starts at Home implementation study which provides services to stabilize housing.
 
