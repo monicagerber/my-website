@@ -8,6 +8,16 @@
   </url>
   
   <url>
+    <loc>/2018/01/hello-world/</loc>
+    <lastmod>2018-01-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/2018/01/hello-world/</loc>
+    <lastmod>2018-01-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/categories/about-me/</loc>
     <lastmod>2018-01-29T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -37,13 +47,12 @@
   </url>
   
   <url>
-    <loc>/tags/rmarkdown/</loc>
-    <lastmod>2018-01-29T00:00:00+00:00</lastmod>
+    <loc>/tags/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/</loc>
+    <loc>/tags/website/</loc>
     <lastmod>2018-01-29T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
