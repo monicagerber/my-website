@@ -1,0 +1,172 @@
+---
+title: A little bit of Monica in my life
+author: Monica Gerber
+date: '2018-01-30'
+slug: another-poisoned-name
+categories:
+  - about-me
+tags:
+  - baby names
+draft: true
+---
+
+One analysis in the R community that has inspired me is Hilarly Parker's analysis of [the most poisoned baby name in US history](https://hilaryparker.com/2013/01/30/hilary-the-most-poisoned-baby-name-in-us-history/). It turns out that I also have a so-called 'poisoned' name, or so I thought.
+
+For a short period in grade school there was nothing I wished for more than for my name to not be what caused the adults to turn down the volumne on NPR. Its entrance into popular culture due to the [Clinton Impeachment](https://twitter.com/MonicaLewinsky/status/935600676184477696), a shoutout in [Mambo No. 5](https://twitter.com/MonicaLewinsky/status/935600676184477696), and also being name of the the least likable roommate on Friends, was unfortunate, I thought. But now I am fond of my name again. I'm also looking back on that cultural moment with a new lens thanks to Monica Lewinsky's awesome [talk](https://www.ted.com/talks/monica_lewinsky_the_price_of_shame).
+
+After watching the talk, I decided that the only thing left to do was to dig into the data!
+
+# &#127897; One, two, three, four, five &#127897;
+
+## The `babynames` package
+
+Since Hilary conducted her analysis, it's much easier to get the baby names data because it is now available as a package on CRAN. The data frame includes the year, sex, name, and frequency of the name. It also includes the proportion, `prop`, of people of that gender and name born in that year. 
+
+```{r data, message=FALSE}
+library(babynames)
+head(babynames)
+str(babynames)
+```
+
+
+There are a lot of observations! Maybe we don't need to calculate the relative risk for *every name*. We might want to remove some names that either have a small n or proportion. In Hilary's analysis she looked at the top 1000 names in a given year, so I will follow that methodology. 
+
+One other difference is that we can now calculate the relative risk using the [tidyverse](https://www.tidyverse.org/).
+
+## Data wrangling
+
+First I will limit the data set to the top 1000 names in a year and then calculate the relative risk. 
+
+```{r relrisk, message=FALSE}
+library(tidyverse)
+library(knitr)
+
+top1000 <- babynames %>%
+  group_by(sex, year) %>%
+  arrange(desc(n)) %>%
+  mutate(rank = row_number()) %>%
+  filter(rank <= 1000) %>%
+  group_by(sex, name) %>%
+  arrange(year) %>%
+  mutate(relrisk = prop/lag(prop)) 
+```
+
+The only problem with doing it like this is that if there are gaps that the name made it in the top 1000, the calculation is off. For example, look at the name Aarush. Aarush was in the top 1000 in 2010, then dipped below the top 1000 in 2011 to 2014, and then back in the top 1000 in 2015.
+
+```{r}
+top1000 %>%
+  filter(name == "Aarush") %>%
+  kable()
+```
+
+Ok, let's try this again.
+
+```{r}
+top1000 <- babynames %>%
+  group_by(sex, year) %>%
+  arrange(desc(n)) %>%
+  mutate(rank = row_number()) %>%
+  filter(rank <= 1000) %>%
+  group_by(sex, name) %>%
+  arrange(year) %>%
+  mutate(relrisk = ifelse(year == lag(year)+1, prop/lag(prop), NA),
+         loss_pct = (1-relrisk)*100) %>%
+  ungroup()
+```
+
+It works!
+
+```{r}
+top1000 %>%
+  group_by(sex, name) %>%
+  filter(year != lag(year)+1) %>%
+  arrange(name, year, sex)
+```
+
+## Biggest percent drops
+
+OK, let's see who has the biggest drops!
+
+```{r}
+top1000 %>%
+  arrange(desc(loss_pct)) %>%
+  filter(sex == "F") %>%
+  filter(row_number() <= 14) %>%
+  select(name, loss_pct, year, n)
+```
+
+Hmmm, these rankings are *slightly* different than Hilary's but pretty darn close! I think the difference comes from the fact that I didn't round the loss percent. Close enough!
+
+# &#127930; Jump up and down and move it all around &#127930;
+
+So where does **Monica** stand? Let's take a look at its loss percent compared to the other names.
+
+```{r}
+top1000 %>%
+  filter(name == "Monica") %>%
+  select(name, year, loss_pct, n) %>%
+  arrange(desc(loss_pct)) 
+```
+
+Only a 34% loss in 1999 compared to 70% for Hilary and 78% for Farrah.
+
+Let's take a look at the names side by side using ggplot2.
+
+```{r}
+top1000 %>%
+  mutate(percent = prop*100) %>%
+  filter(name == "Monica" | name == "Hilary" | name == "Hillary") %>%
+  ggplot(aes(year, percent, colour = name)) +
+  geom_line() +
+  labs(title = "Percent of girls given the name Hilary/Hillary or Monica over time",
+       y = "Percent",
+       x = "Year",
+       legend = "Name")
+```
+
+Wow, that really changes my perspective. Hilary may have the largest loss percent, but in absolute terms was the drop in Monicas larger? It's hard to tell. It looks like there was already a downward trend after the 1970s, but that the trend started to level off in the 1990s (maybe Monica from Friends wasn't so unpopular after all?!), before plummeting in '98 and '99. 
+
+# &#127925; And if it looks like this then you're doing it right &#127925;
+
+In public health we use both the relative risk[^1] and the risk difference. The usefulness of these measures is often the source of a lot of confusion in media stories about the benefit of certain treatments and screenings, for example, the benefits of [mammography](https://www.nytimes.com/2015/02/03/upshot/how-to-measure-a-medical-treatments-potential-for-harm.html) or the harms of [alcohol use](https://www.nytimes.com/2017/11/10/upshot/health-alcohol-cancer-research.html) and [birth control](https://www.nytimes.com/2017/12/10/upshot/birth-control-breast-cancer-risks.html).
+
+The *risk difference (RD)* is the difference in proportions--it is the absolute effect of a risk factor, or the *excess risk* of disease among those who have been exposed to a vector vs. thsoe who have not been exposed. In the study on alcohol use and breast cancer, a 40-year-old woman has an absolute risk of 1.45 of developing breast cancer in the next 10 years. If she is a light drinker, this risk becomes 1.51 percent. The risk ratio is 1.51/1.45 = `r 1.51/1.45`, a 4% increase in risk. However, the risk difference is 1.51-1.45 = `r 1.51-1.45`, or an excess risk of .06 per 100. That's 1.2 people for every 2,000 light drinkers.
+
+Would the risk difference provide a new perspective to these poisoned names? Let's calculate the risk differences in our babynames dataset.
+
+```{r}
+rds <- top1000 %>%
+  group_by(sex, name) %>%
+  arrange(year) %>%
+  mutate(riskdiff= ifelse(year == lag(year)+1, prop - lag(prop), NA),
+         excessrisk_per10000 = round(riskdiff*10000,1)) %>%
+  ungroup()
+
+rds %>%
+  filter(sex == "F") %>%
+  arrange(riskdiff) %>%
+  filter(row_number() <= 14)
+  
+```
+
+So in absolute terms, the biggest drops were among names that have higher frequencies. There is a decrease of 83 Shirley's per 10,000 babies in the year 1937 compared to the prior year. Hilary/Hillary and Monica are nowhere near the top losses if we look at the risk difference. 
+
+But what if we compare Hilary to Monica? Who has the biggest drop in absolute terms? 
+
+```{r}
+rds %>%
+  filter(sex == "F") %>%
+  arrange(riskdiff) %>%
+  select(year, name, n, riskdiff, excessrisk_per10000) %>%
+  filter(name == "Monica" | name == "Hilary" | name == "Hillary",
+         year > 1990)
+```
+
+Hilary/Hillary still wins! 
+
+
+
+
+
+[^1]: The relative risk is also referred to as the risk ratio or the cumulative incidence ratio in epidemiology. I know, why don't we just stick to calling it one thing?!
+
