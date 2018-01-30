@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Monica W. Gerber</title>
-    <link>/</link>
-    <description>Recent content on Monica W. Gerber</description>
+    <title>Baby Names on Monica W. Gerber</title>
+    <link>/tags/baby-names/</link>
+    <description>Recent content in Baby Names on Monica W. Gerber</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 30 Jan 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/baby-names/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -19,16 +19,6 @@
       <guid>/2018/01/another-poisoned-name/</guid>
       <description>One analysis in the R community that has inspired me is Hilarly Parker’s analysis of the most poisoned baby name in US history. It turns out that I also have a so-called ‘poisoned’ name, or so I thought.
 For a short period in grade school there was nothing I wished for more than for my name to not be what caused the adults to turn down the volumne on NPR. Its entrance into popular culture due to the Clinton Impeachment, a shoutout in Mambo No.</description>
-    </item>
-    
-    <item>
-      <title>Hello, world!</title>
-      <link>/2018/01/hello-world/</link>
-      <pubDate>Mon, 29 Jan 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/2018/01/hello-world/</guid>
-      <description>About my work My name is Monica Gerber and I am a Biostatistician located in Boston, Massachusetts. I have worked at Massachusetts General Hospital (MGH) since January 2015, when I joined the Department of Psychiatry to work in a research group focused on population mental health. Currently, I work in General Academic Pediatrics and the Center for Community Health Improvement (CCHI).
-At MGH I have the pleasure of working on many research and evaluation projects.</description>
     </item>
     
   </channel>

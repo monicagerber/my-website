@@ -3,11 +3,11 @@ title: A little bit of Monica in my life
 author: Monica Gerber
 date: '2018-01-30'
 slug: another-poisoned-name
+draft: true
 categories:
   - about-me
 tags:
   - baby names
-draft: true
 ---
 
 One analysis in the R community that has inspired me is Hilarly Parker's analysis of [the most poisoned baby name in US history](https://hilaryparker.com/2013/01/30/hilary-the-most-poisoned-baby-name-in-us-history/). It turns out that I also have a so-called 'poisoned' name, or so I thought.
