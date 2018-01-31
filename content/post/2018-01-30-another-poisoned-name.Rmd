@@ -2,12 +2,12 @@
 title: A little bit of Monica in my life
 author: Monica Gerber
 date: '2018-01-30'
-slug: little-bit-of-Monica
-draft: false
 categories:
   - about-me
 tags:
   - babynames
+slug: little-bit-of-Monica
+draft: no
 thumbnailImage: img/me-in-seattle.JPG
 thumbnailImagePosition: left
 coverMeta: out
@@ -109,6 +109,10 @@ These rankings are *slightly* different than Hilary's but pretty darn close! I t
 
 So where does **Monica** stand? Let's take a look at its loss percent compared to the other names.
 
+## Finding Monica in `babynames`
+
+First I filtered the data set to see how the loss percent for Monica compares to the list of the top poisoned names.
+
 ```{r}
 top1000 %>%
   filter(name == "Monica") %>%
@@ -117,6 +121,8 @@ top1000 %>%
 ```
 
 Only a 34% loss for Monica in 1999 compared to 70% for Hilary in 1993 and 78% for Farrah in 1978.
+
+## Graphing it
 
 Let's take a look at the names side by side using ggplot2.
 
@@ -134,6 +140,8 @@ top1000 %>%
 Wow, that really changes my perspective. Hilary may have the largest loss percent, but in absolute terms was the drop in Monicas larger? It's hard to tell. It looks like there was already a downward trend after the 1970s, but that the trend started to level off in the 1990s (maybe Monica from Friends wasn't so unpopular after all?!), before plummeting in '98 and '99. 
 
 # &#127925; And if it looks like this then you're doing it right &#127925;
+
+## The risk differnce
 
 In public health we use both the relative risk[^1] and the risk difference. The usefulness of these measures is often the source of a lot of confusion in the media when there are stories about the benefit of certain treatments and screenings, for example, the benefits of [mammography](https://www.nytimes.com/2015/02/03/upshot/how-to-measure-a-medical-treatments-potential-for-harm.html) or the harms of [alcohol use](https://www.nytimes.com/2017/11/10/upshot/health-alcohol-cancer-research.html) and [birth control](https://www.nytimes.com/2017/12/10/upshot/birth-control-breast-cancer-risks.html). Side note: one reason I love [The Upshot](https://www.nytimes.com/section/upshot) is because they do an excellent job of explaining this to a non-epidemiologist audience. 
 
