@@ -186,12 +186,12 @@ rds %>%
   kable()
 ```
 
-Hilary/Hillary still wins! 
+And Hillary wins with an excess risk of -7.2 per 10,000 babies in 1993! It's even higher if you combine Hilary and Hillary. Interestingly, Hi**ll**ary had a higher risk difference compared to Hi*l*ary in 1993. Using the risk ratio, Hi*l*ary is the more poisoned name.
 
 ![](https://media.giphy.com/media/IdyHPMy8eqZ68/giphy.gif)
 
 P.S. Seriously, watch this [talk]((https://www.ted.com/talks/monica_lewinsky_the_price_of_shame)) by Monica Lewinsky. It's inspiring and says a lot about internet culture today.
 
 [^1]: The relative risk is also referred to as the risk ratio or the cumulative incidence ratio in epidemiology. I know, why don't we just stick to calling it one thing?!
-[^2]: Here's a diagram to illustrate the risk difference and excess risk.
+[^2]: Here's a [diagram](http://sphweb.bumc.bu.edu/otlt/mph-modules/ep/ep713_association/EP713_Association5.html) to illustrate the risk difference and excess risk.
 
