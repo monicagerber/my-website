@@ -186,7 +186,7 @@ rds %>%
   kable()
 ```
 
-And Hillary wins with an excess risk of -7.2 per 10,000 babies in 1993! It's even higher if you combine Hilary and Hillary. Interestingly, Hi**ll**ary had a higher risk difference compared to Hi**l**ary in 1993. Using the risk ratio, Hi**l**ary is the more poisoned name.
+And Hillary wins with an excess risk of -7.2 per 10,000 babies in 1993! It's even larger if you combine Hilary and Hillary. Interestingly, Hi**ll**ary had a larger risk difference compared to Hi**l**ary in 1993. Using the risk ratio, Hi**l**ary is the more poisoned name.
 
 ![](https://media.giphy.com/media/IdyHPMy8eqZ68/giphy.gif)
 
