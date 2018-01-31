@@ -2,12 +2,12 @@
 title: A little bit of Monica in my life
 author: Monica Gerber
 date: '2018-01-30'
-slug: another-poisoned-name
-draft: true
+slug: little-bit-of-Monica
+draft: false
 categories:
   - about-me
 tags:
-  - baby names
+  - babynames
 thumbnailImage: img/me-in-seattle.JPG
 thumbnailImagePosition: left
 coverMeta: out

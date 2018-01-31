@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Monica W. Gerber</title>
-    <link>/post/</link>
-    <description>Recent content in Posts on Monica W. Gerber</description>
+    <title>Babynames on Monica W. Gerber</title>
+    <link>/tags/babynames/</link>
+    <description>Recent content in Babynames on Monica W. Gerber</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 30 Jan 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/babynames/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -19,16 +19,6 @@
       <guid>/2018/01/little-bit-of-monica/</guid>
       <description>One analysis in the R community that caught my attention is Hilary Parker’s analysis of the most poisoned baby name in US history. I was surprised that my own name didn’t show up in the analysis. If Hilary had a huge loss in 1993, what happened to Monica in 1999?
 For a period when I was a kid the name ‘Monica’ is what made the adults turn down the NPR broadcast.</description>
-    </item>
-    
-    <item>
-      <title>Hello, world!</title>
-      <link>/2018/01/hello-world/</link>
-      <pubDate>Mon, 29 Jan 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/2018/01/hello-world/</guid>
-      <description>About my work My name is Monica Gerber and I am a Biostatistician located in Boston, Massachusetts. I have worked at Massachusetts General Hospital (MGH) since January 2015, when I joined the Department of Psychiatry to work in a research group focused on population mental health. Currently, I work in General Academic Pediatrics and the Center for Community Health Improvement (CCHI).
-At MGH I have the pleasure of working on many research and evaluation projects.</description>
     </item>
     
   </channel>

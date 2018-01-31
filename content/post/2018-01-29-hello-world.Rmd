@@ -9,7 +9,6 @@ tags:
 slug: hello-world
 thumbnailImage: img/boston-blue-hills.JPG
 thumbnailImagePosition: left
-coverCaption: "Boston from Blue Hills Reservation"
 coverMeta: out
 coverSize: full
 coverImage: img/boston-blue-hills.JPG
