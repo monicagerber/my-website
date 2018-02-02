@@ -195,5 +195,5 @@ P.S. Seriously, watch this [talk]((https://www.ted.com/talks/monica_lewinsky_the
 
 [^1]: The relative risk is also referred to as the risk ratio or the cumulative incidence ratio in epidemiology. I know, why don't we just stick to calling it one thing?!
 [^2]: Here's a [diagram](http://sphweb.bumc.bu.edu/otlt/mph-modules/ep/ep713_association/EP713_Association5.html) to illustrate the risk difference and excess risk.
-[^3] See: https://www.cdc.gov/ophss/csels/dsepd/ss1978/lesson3/section6.html. The risk differnce is sometimes called the attributable risk. 
+[^3]: See: https://www.cdc.gov/ophss/csels/dsepd/ss1978/lesson3/section6.html. The risk differnce is sometimes called the attributable risk. 
 
