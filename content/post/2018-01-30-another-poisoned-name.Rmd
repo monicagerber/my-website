@@ -7,7 +7,7 @@ categories:
 tags:
   - babynames
 slug: little-bit-of-Monica
-draft: no
+draft: true
 thumbnailImage: img/me-in-seattle.JPG
 thumbnailImagePosition: left
 coverMeta: out
@@ -19,15 +19,13 @@ One analysis in the R community that caught my attention is Hilary Parker's anal
 
 For a period when I was a kid the name 'Monica' is what made the adults turn down the NPR broadcast. Its entrance into popular culture due to the [Clinton Impeachment](https://twitter.com/MonicaLewinsky/status/935600676184477696), a shoutout in [Mambo No. 5](https://www.youtube.com/watch?v=EK_LN3XEcnw), and also being name of the the least likable roommate on Friends (#bossy), wasn't exactly the kind of material that was going to make me cool. 
 
-But now I am fond of my name again and I'm also looking back on that cultural moment with a new lens thanks to Monica Lewinsky's awesome [talk](https://www.ted.com/talks/monica_lewinsky_the_price_of_shame).
-
-However, with the `babynames` package on CRAN, taking a look into how poisoned 'Monica' was in the 90s was simple.
+But now I am fond of my name again and I'm also looking back on that cultural moment with a new lens thanks to Monica Lewinsky's awesome [talk](https://www.ted.com/talks/monica_lewinsky_the_price_of_shame). However, with the `babynames` package on CRAN, I had to take a look at where 'Monica' falls on the poisoned names list. 
 
 # &#127897; One, two, three, four, five &#127897;
 
 ## The `babynames` package
 
-Since Hilary conducted her analysis, it's much easier to get the baby names data because it is now available as a package on CRAN. The data frame includes the year, sex, name, and frequency of the name. It also includes the proportion, `prop`, of people of that gender and name born in that year. 
+Since Hilary conducted her analysis, it's much easier to get the baby names data because it is now available as a package on CRAN. The data frame includes the year, sex, name, and frequency of the name. It also includes the proportion, `prop`, of people of that gender and name born in that year. One other difference is that we can now calculate the relative risk using the [tidyverse](https://www.tidyverse.org/).
 
 ```{r data, message=FALSE}
 library(babynames)
@@ -37,11 +35,13 @@ str(babynames)
 
 In Hilary's analysis she looked at the top 1000 names in a given year, so I will follow that methodology. 
 
-One other difference is that we can now calculate the relative risk using the [tidyverse](https://www.tidyverse.org/).
-
 ## Data wrangling
 
-First I will limit the data set to the top 1000 names in a year and then calculate the relative risk. 
+First I will limit the data set to the top 1000 names in a year and then calculate the relative risk and percentage loss. 
+
+As Hilary explains in her post, the relative risk is a measure used to compare propotions. In public health we use it to compare the proportion of people who get a disease who were *exposed* to something to the proportion of people who get a disease who were *unexposed* to something. For example, if 10 out of 100 people (10%) who get a flu shot end up getting the flu in a given year, and 15 out of 100 people (15%) who don't get a flu show end up getting the flu in a given year, then we can divide .10 by .15 to get the relative risk of 0.67. This means that people who get the flu shot have 0.67 times the risk of getting the flu compared to those whoe don't get the flu shot. In Hilary's analysis, she calculates the relative risk as a loss percent to help us think of it as a decrease. In the flu example, the loss percent would be (1-0.67)*100 = 33% less likely.
+
+Here's how we can calculate this in the tidyverse.
 
 ```{r relrisk, message=FALSE}
 library(tidyverse)
@@ -53,7 +53,8 @@ top1000 <- babynames %>%
   filter(rank <= 1000) %>%
   group_by(sex, name) %>%
   arrange(year) %>%
-  mutate(relrisk = prop/lag(prop)) 
+  mutate(relrisk = prop/lag(prop),
+         loss_pct = (1-relrisk)*100)
 ```
 
 The only problem with doing it like this is that if there are gaps that the name made it in the top 1000, the calculation is off. For example, look at the name Aarush. Aarush was in the top 1000 in 2010, then dipped below the top 1000 in 2011 to 2014, and then back in the top 1000 in 2015.
@@ -137,7 +138,7 @@ top1000 %>%
        x = "Year")
 ```
 
-Wow, that really changes my perspective. Hilary may have the largest loss percent, but in absolute terms was the drop in Monicas larger? It's hard to tell. It looks like there was already a downward trend after the 1970s, but that the trend started to level off in the 1990s (maybe Monica from Friends wasn't so unpopular after all?!), before plummeting in '98 and '99. 
+Wow, that really changes my perspective. Hilary may have the largest loss percent in a given year, but was the impact of the drop in Monica's greater because there were more Monica's to begin with? It's hard to tell. It looks like there was already a downward trend after the 1970s, but that the trend started to level off in the 1990s (maybe Monica from Friends wasn't so unpopular after all?!), before plummeting in '98 and '99. 
 
 # &#127925; And if it looks like this then you're doing it right &#127925;
 
@@ -145,9 +146,9 @@ Wow, that really changes my perspective. Hilary may have the largest loss percen
 
 In public health we use both the relative risk[^1] and the risk difference. The usefulness of these measures is often the source of a lot of confusion in the media when there are stories about the benefit of certain treatments and screenings, for example, the benefits of [mammography](https://www.nytimes.com/2015/02/03/upshot/how-to-measure-a-medical-treatments-potential-for-harm.html) or the harms of [alcohol use](https://www.nytimes.com/2017/11/10/upshot/health-alcohol-cancer-research.html) and [birth control](https://www.nytimes.com/2017/12/10/upshot/birth-control-breast-cancer-risks.html). Side note: one reason I love [The Upshot](https://www.nytimes.com/section/upshot) is because they do an excellent job of explaining this to a non-epidemiologist audience. 
 
-The *risk difference (RD)*[^2] is the difference in proportions--it is the absolute effect of a risk factor, or the *excess risk* of disease among those who have been exposed to a vector vs. those who have not been exposed. In the study on alcohol use and breast cancer, a 40-year-old woman has an absolute risk of 1.45 of developing breast cancer in the next 10 years. If she is a light drinker, this risk becomes 1.51 percent. The risk ratio is 1.51/1.45 = `r 1.51/1.45`, or a 4% increase in risk. However, the risk difference is 1.51-1.45 = `r 1.51-1.45`, or an excess risk of .06 per 100. That's 1.2 people for every 2,000 light drinkers. When you put it in absolute terms, the RD brings a different perspective to certain types of risk.
+The risk difference[^2] is used to describe the "public health impact" and to "put the association between and exposure and outcome into a meaningful public health context."[^3] The *risk difference (RD)* is the difference in proportionsit tells us what the *excess risk* of disease is among those who have been exposed to something vs. those who have not been exposed. In the study on alcohol use and breast cancer mentioned above, a 40-year-old woman has an absolute risk of 1.45 of developing breast cancer in the next 10 years. If she is a light drinker, this risk becomes 1.51 percent. The risk ratio is 1.51/1.45 = `r 1.51/1.45`, or a 4% increase in risk. However, the risk difference is 1.51-1.45 = `r 1.51-1.45`, or an excess risk of .06 per 100. That's 1.2 people for every 2,000 light drinkers. When you put it in absolute terms, the RD brings a different perspective to certain types of risk.
 
-Would the risk difference provide a new perspective to these poisoned names? Let's calculate the risk differences in our babynames data set.
+Would the risk difference say about these poisoned names? Let's calculate the risk differences in our babynames data set. In this analysis, we can think of the year as the "exposure" and the name as the "outcome." We can think caculate the "risk" or probability of being named Monica in any given year compared to the prior year. To make this more interpretable, I also caculated the excess risk, or how many people were named Monica in a year per 10,000 people named compared to the previous year, by multiplying the risk difference by 10,000.
 
 ```{r}
 rds <- top1000 %>%
@@ -166,7 +167,7 @@ rds %>%
   
 ```
 
-So in absolute terms, the biggest drops were among names that have higher frequencies. There is a decrease of 83 Shirley's per 10,000 babies born in the year 1937 compared to the prior year. Sorry Shirley!
+So in absolute terms, the biggest drops were among names that have higher frequencies. The overall impact is greater. There is a decrease of 83 Shirley's per 10,000 babies born in the year 1937 compared to the prior year. Sorry Shirley!
 
 ![](https://media.giphy.com/media/LTLiLcGWl5ula/giphy.gif)
 
@@ -194,4 +195,5 @@ P.S. Seriously, watch this [talk]((https://www.ted.com/talks/monica_lewinsky_the
 
 [^1]: The relative risk is also referred to as the risk ratio or the cumulative incidence ratio in epidemiology. I know, why don't we just stick to calling it one thing?!
 [^2]: Here's a [diagram](http://sphweb.bumc.bu.edu/otlt/mph-modules/ep/ep713_association/EP713_Association5.html) to illustrate the risk difference and excess risk.
+[^3] See: https://www.cdc.gov/ophss/csels/dsepd/ss1978/lesson3/section6.html. The risk differnce is sometimes called the attributable risk. 
 
