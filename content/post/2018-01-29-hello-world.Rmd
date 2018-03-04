@@ -16,13 +16,15 @@ coverImage: img/boston-blue-hills.JPG
 
 # About my work
 
-My name is Monica Gerber and I am a Biostatistician located in Boston, Massachusetts. I have worked at Massachusetts General Hospital (MGH) since January 2015, when I joined the Department of Psychiatry to work in a research group focused on population mental health. Currently, I work in [General Academic Pediatrics](http://www.massgeneral.org/children/research/researchlab.aspx?id=1577) and the [Center for Community Health Improvement](http://www.massgeneral.org/cchi/) (CCHI).
+My name is Monica Gerber and I am a Biostatistician located in Boston, Massachusetts. I started working at Massachusetts General Hospital (MGH) in January 2015, when I joined the Department of Psychiatry to work in a research group focused on population mental health. Currently, I work in [General Academic Pediatrics](http://www.massgeneral.org/children/research/researchlab.aspx?id=1577) and the [Center for Community Health Improvement](http://www.massgeneral.org/cchi/) (CCHI).
 
 At MGH I have the pleasure of working on many research and evaluation projects. In General Academic Pediatrics I work on [several](http://www.massgeneral.org/children/research/general-academic-pediatrics-ongoing-projects.aspx) maternal and childhood obesity research studies. At CCHI, I help the evaluation team develop statistical analyses to understand the public health status of Boston's communities and to evaluate prevention efforts. I am also the Principal Investigator of the Health Starts at Home implementation study which provides services to stabilize housing.
 
 # Why this blog?
 
-When I learned how to use SAS in graduate school, there was a community of fellow biostatistics and epidemiology students all struggling through the same problems and sharing ideas. One thing about R that inspires me is the amazing and supportive online community. I hope that through this blog I will be able to connect with other public health data science folks. Please reach out or comment on a post!
+When I learned how to use SAS in graduate school, there was a community of fellow biostatistics and epidemiology students all struggling through the same problems and sharing ideas. Learning something new in a community makes the experience more enjoyable and rewarding.
+
+About 3 years ago I started to use R for many of my projects at MGH. One thing about R that inspires me is the amazing and supportive online community. I hope that through this blog I will be able to connect with other public health data science folks who are using R. Please reach out or comment on a post!
 
 
 

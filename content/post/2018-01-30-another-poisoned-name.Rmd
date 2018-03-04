@@ -1,13 +1,13 @@
 ---
 title: A little bit of Monica in my life
 author: Monica Gerber
-date: '2018-01-30'
+date: '2018-03-04'
 categories:
   - about-me
 tags:
   - babynames
 slug: little-bit-of-Monica
-draft: true
+draft: no
 thumbnailImage: img/me-in-seattle.JPG
 thumbnailImagePosition: left
 coverMeta: out
@@ -17,9 +17,9 @@ coverImage: img/boston-public-garden-winter.JPG
 
 One analysis in the R community that caught my attention is Hilary Parker's analysis of [the most poisoned baby name in US history](https://hilaryparker.com/2013/01/30/hilary-the-most-poisoned-baby-name-in-us-history/). I was surprised that my own name didn't show up in the analysis. If Hilary had a huge loss in 1993, what happened to Monica in 1999? 
 
-For a period when I was a kid the name 'Monica' is what made the adults turn down the NPR broadcast. Its entrance into popular culture due to the [Clinton Impeachment](https://twitter.com/MonicaLewinsky/status/935600676184477696), a shoutout in [Mambo No. 5](https://www.youtube.com/watch?v=EK_LN3XEcnw), and also being name of the the least likable roommate on Friends (#bossy), wasn't exactly the kind of material that was going to make me cool. 
+For a period when I was a kid the name 'Monica' is what made the adults turn down the NPR broadcast. Its entrance into popular culture due to the [Clinton Impeachment](https://twitter.com/MonicaLewinsky/status/935600676184477696), a shoutout in [Mambo No. 5](https://www.youtube.com/watch?v=EK_LN3XEcnw), and also being name of the the least likable roommate on Friends (#bossy)[^1], wasn't exactly the kind of material that was going to make me cool. 
 
-But now I am fond of my name again and I'm also looking back on that cultural moment with a new lens thanks to Monica Lewinsky's awesome [talk](https://www.ted.com/talks/monica_lewinsky_the_price_of_shame). However, with the `babynames` package on CRAN, I had to take a look at where 'Monica' falls on the poisoned names list. 
+But now I am fond of my name again and I'm also looking back on that cultural moment with a new lens thanks to Monica Lewinsky's awesome [talk](https://www.ted.com/talks/monica_lewinsky_the_price_of_shame) and [essay](https://www.vanityfair.com/news/2018/02/monica-lewinsky-in-the-age-of-metoo). Still, with the `babynames` package on CRAN, I had to take a look at where 'Monica' falls on the poisoned names list. 
 
 # &#127897; One, two, three, four, five &#127897;
 
@@ -108,7 +108,7 @@ These rankings are *slightly* different than Hilary's but pretty darn close! I t
 
 # &#127930; Jump up and down and move it all around &#127930;
 
-So where does **Monica** stand? Let's take a look at its loss percent compared to the other names.
+So where does *Monica* stand? Let's take a look at its loss percent compared to the other names.
 
 ## Finding Monica in `babynames`
 
@@ -144,11 +144,15 @@ Wow, that really changes my perspective. Hilary may have the largest loss percen
 
 ## The risk differnce
 
-In public health we use both the relative risk[^1] and the risk difference. The usefulness of these measures is often the source of a lot of confusion in the media when there are stories about the benefit of certain treatments and screenings, for example, the benefits of [mammography](https://www.nytimes.com/2015/02/03/upshot/how-to-measure-a-medical-treatments-potential-for-harm.html) or the harms of [alcohol use](https://www.nytimes.com/2017/11/10/upshot/health-alcohol-cancer-research.html) and [birth control](https://www.nytimes.com/2017/12/10/upshot/birth-control-breast-cancer-risks.html). Side note: one reason I love [The Upshot](https://www.nytimes.com/section/upshot) is because they do an excellent job of explaining this to a non-epidemiologist audience. 
+In public health we use both the relative risk[^2] and the risk difference. They provide two different perspectives on the same information, and the usefulness of each measure depends on what question you are hoping to answer[^3]. When the question is about the population-level *impact* of a factor on an outcome, then the risk difference is a more useful measure. When the question is about the *strength* of an association, the relative risk is the best option. The question about which baby name was the most poisoned--that is, which name had the *strongest* drop in popularity--is a question about the *strength* of an association.
 
-The risk difference[^2] is used to describe the "public health impact" and to "put the association between and exposure and outcome into a meaningful public health context."[^3] The *risk difference (RD)* is the difference in proportionsit tells us what the *excess risk* of disease is among those who have been exposed to something vs. those who have not been exposed. In the study on alcohol use and breast cancer mentioned above, a 40-year-old woman has an absolute risk of 1.45 of developing breast cancer in the next 10 years. If she is a light drinker, this risk becomes 1.51 percent. The risk ratio is 1.51/1.45 = `r 1.51/1.45`, or a 4% increase in risk. However, the risk difference is 1.51-1.45 = `r 1.51-1.45`, or an excess risk of .06 per 100. That's 1.2 people for every 2,000 light drinkers. When you put it in absolute terms, the RD brings a different perspective to certain types of risk.
+However, when I looked at the plot above, a new question came to mind: did the drop in the baby name Monica have a greater impact in terms of the overall number of babies being named in the 90s?
 
-Would the risk difference say about these poisoned names? Let's calculate the risk differences in our babynames data set. In this analysis, we can think of the year as the "exposure" and the name as the "outcome." We can think caculate the "risk" or probability of being named Monica in any given year compared to the prior year. To make this more interpretable, I also caculated the excess risk, or how many people were named Monica in a year per 10,000 people named compared to the previous year, by multiplying the risk difference by 10,000.
+In more detail, The *risk difference (RD)* is the difference in proportions. It tells us what the *excess risk* of disease is among those who have been exposed to something vs. those who have not been exposed. In a study on alcohol use and breast cancer[^4], a 40-year-old woman has an absolute risk of 1.45 of developing breast cancer in the next 10 years. If she is a light drinker, this risk becomes 1.51 percent. The risk ratio is 1.51/1.45 = `r round(1.51/1.45,2)`, or a 4% increase in risk, which seems like a non-negligible amount. However, the risk difference is 1.51-1.45 = `r round(1.51-1.45,2)`, or an excess risk of .06 per 100. That's 6 people for every 10,000 light drinkers, which is a pretty low population impact. When you put it in absolute terms, the RD brings a different perspective to certain types of risk.
+
+## The risk difference in `babynames`
+
+Would the risk difference say about these poisoned names? I'll calculate the risk differences in the babynames data set. In this analysis, we can think of the year as the "exposure" and the name as the "outcome." We can think calculate the "risk" or probability of being named Monica in any given year compared to the prior year. To make this more interpretable, I also caculated the excess risk, or how many people were named Monica in a year per 10,000 people named compared to the previous year, by multiplying the risk difference by 10,000.
 
 ```{r}
 rds <- top1000 %>%
@@ -187,13 +191,15 @@ rds %>%
   kable()
 ```
 
-And Hillary wins with an excess risk of -7.2 per 10,000 babies in 1993! It's even larger if you combine Hilary and Hillary. Interestingly, Hi**ll**ary had a larger risk difference compared to Hi**l**ary in 1993. Using the risk ratio, Hi**l**ary is the more poisoned name.
+And Hillary wins with an excess risk of -7.2 per 10,000 babies in 1993! In 1993, there were about 7 fewer babies named Hillary than in 1992 for every 10,000 babies born. It's even larger if you combine Hilary and Hillary. Interestingly, Hi**ll**ary had a larger risk difference compared to Hi**l**ary in 1993. Using the risk ratio, Hi**l**ary is the more poisoned name.
 
 ![](https://media.giphy.com/media/IdyHPMy8eqZ68/giphy.gif)
 
-P.S. Seriously, watch this [talk]((https://www.ted.com/talks/monica_lewinsky_the_price_of_shame)) by Monica Lewinsky. It's inspiring and says a lot about internet culture today.
 
-[^1]: The relative risk is also referred to as the risk ratio or the cumulative incidence ratio in epidemiology. I know, why don't we just stick to calling it one thing?!
-[^2]: Here's a [diagram](http://sphweb.bumc.bu.edu/otlt/mph-modules/ep/ep713_association/EP713_Association5.html) to illustrate the risk difference and excess risk.
-[^3]: See: https://www.cdc.gov/ophss/csels/dsepd/ss1978/lesson3/section6.html. The risk differnce is sometimes called the attributable risk. 
+P.S. Seriously, watch this [talk]((https://www.ted.com/talks/monica_lewinsky_the_price_of_shame)) or read this [story](https://www.vanityfair.com/news/2018/02/monica-lewinsky-in-the-age-of-metoo) by Monica Lewinsky. It's inspiring and adds a lot to current conversations about harrassment and bullying.
 
+
+[^1]: I'll admit that I've never actually watched *Friends*, but this is the impression I got random clips!
+[^2]: The relative risk is also referred to as the risk ratio or the cumulative incidence ratio in epidemiology. I know, why don't we just stick to calling it one thing?!
+[^3]:The usefulness of these measures is often the source of a lot of confusion in the media when there are stories about the benefit of certain treatments and screenings, for example, the benefits of [mammography](https://www.nytimes.com/2015/02/03/upshot/how-to-measure-a-medical-treatments-potential-for-harm.html) or the harms of [alcohol use](https://www.nytimes.com/2017/11/10/upshot/health-alcohol-cancer-research.html) and [birth control](https://www.nytimes.com/2017/12/10/upshot/birth-control-breast-cancer-risks.html). One reason I love [The Upshot](https://www.nytimes.com/section/upshot) is because they do an excellent job of explaining this to a non-epidemiologist audience. 
+[^4]: https://www.nytimes.com/2017/11/10/upshot/health-alcohol-cancer-research.html

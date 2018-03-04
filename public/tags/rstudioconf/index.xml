@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rstudioconf on Monica W. Gerber</title>
+    <link>/tags/rstudioconf/</link>
+    <description>Recent content in Rstudioconf on Monica W. Gerber</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 06 Feb 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/rstudioconf/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Reflections on rstudio::conf 2018</title>
+      <link>/2018/02/reflections-on-rstudio-conf-2018/</link>
+      <pubDate>Tue, 06 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/02/reflections-on-rstudio-conf-2018/</guid>
+      <description>I have a confession. The first time I used R, when I was a Freshman at Reed College and taking Math 141, I hated it. At the time, R was something that intimidated me and seemed to add more work to my schedule. Oh, how have things changed! Years later I started using R again
+What makes a successful conference experience? Coming away from the rstudio::conf 2018 with a feeling of excitement and motivation to get started on projects and to conribute to the R community is a good sign of success.</description>
+    </item>
+    
+  </channel>
+</rss>

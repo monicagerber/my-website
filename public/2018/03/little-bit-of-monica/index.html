@@ -36,7 +36,7 @@ For a period when I was a kid the name ‘Monica’ is what made the adults turn
 For a period when I was a kid the name ‘Monica’ is what made the adults turn down the NPR broadcast.">
     <meta property="og:type" content="blog">
     <meta property="og:title" content="A little bit of Monica in my life">
-    <meta property="og:url" content="/2018/01/little-bit-of-monica/">
+    <meta property="og:url" content="/2018/03/little-bit-of-monica/">
     <meta property="og:site_name" content="Monica W. Gerber">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Monica W. Gerber">
@@ -244,9 +244,9 @@ For a period when I was a kid the name ‘Monica’ is what made the adults turn
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2018-01-30T00:00:00Z">
+      <time itemprop="datePublished" datetime="2018-03-04T00:00:00Z">
         
-  January 30, 2018
+  March 4, 2018
 
       </time>
     
@@ -493,7 +493,7 @@ top1000 %&gt;%
 </div>
 <div id="jump-up-and-down-and-move-it-all-around" class="section level1">
 <h1>🎺 Jump up and down and move it all around 🎺</h1>
-<p>So where does <strong>Monica</strong> stand? Let’s take a look at its loss percent compared to the other names.</p>
+<p>So where does <em>Monica</em> stand? Let’s take a look at its loss percent compared to the other names.</p>
 <div id="finding-monica-in-babynames" class="section level2">
 <h2>Finding Monica in <code>babynames</code></h2>
 <p>First I filtered the data set to see how the loss percent for Monica compares to the list of the top poisoned names.</p>
@@ -538,7 +538,10 @@ top1000 %&gt;%
 <h2>The risk differnce</h2>
 <p>In public health we use both the relative risk<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a> and the risk difference. They provide two different perspectives on the same information, and the usefulness of each measure depends on what question you are hoping to answer<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a>. When the question is about the population-level <em>impact</em> of a factor on an outcome, then the risk difference is a more useful measure. When the question is about the <em>strength</em> of an association, the relative risk is the best option. The question about which baby name was the most poisoned–that is, which name had the <em>strongest</em> drop in popularity–is a question about the <em>strength</em> of an association.</p>
 <p>However, when I looked at the plot above, a new question came to mind: did the drop in the baby name Monica have a greater impact in terms of the overall number of babies being named in the 90s?</p>
-<p>In more detail, The <em>risk difference (RD)</em> is the difference in proportions. It tells us what the <em>excess risk</em> of disease is among those who have been exposed to something vs. those who have not been exposed. In a study on alcohol use and breast cancer<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a>, a 40-year-old woman has an absolute risk of 1.45 of developing breast cancer in the next 10 years. If she is a light drinker, this risk becomes 1.51 percent. The risk ratio is 1.51/1.45 = 1.0413793, or a 4% increase in risk, which seems like a non-negligible amount. However, the risk difference is 1.51-1.45 = 0.06, or an excess risk of .06 per 100. That’s 6 people for every 10,000 light drinkers, which is a pretty low population impact. When you put it in absolute terms, the RD brings a different perspective to certain types of risk.</p>
+<p>In more detail, The <em>risk difference (RD)</em> is the difference in proportions. It tells us what the <em>excess risk</em> of disease is among those who have been exposed to something vs. those who have not been exposed. In a study on alcohol use and breast cancer<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a>, a 40-year-old woman has an absolute risk of 1.45 of developing breast cancer in the next 10 years. If she is a light drinker, this risk becomes 1.51 percent. The risk ratio is 1.51/1.45 = 1.04, or a 4% increase in risk, which seems like a non-negligible amount. However, the risk difference is 1.51-1.45 = 0.06, or an excess risk of .06 per 100. That’s 6 people for every 10,000 light drinkers, which is a pretty low population impact. When you put it in absolute terms, the RD brings a different perspective to certain types of risk.</p>
+</div>
+<div id="the-risk-difference-in-babynames" class="section level2">
+<h2>The risk difference in <code>babynames</code></h2>
 <p>Would the risk difference say about these poisoned names? I’ll calculate the risk differences in the babynames data set. In this analysis, we can think of the year as the “exposure” and the name as the “outcome.” We can think calculate the “risk” or probability of being named Monica in any given year compared to the prior year. To make this more interpretable, I also caculated the excess risk, or how many people were named Monica in a year per 10,000 people named compared to the previous year, by multiplying the risk difference by 10,000.</p>
 <pre class="r"><code>rds &lt;- top1000 %&gt;%
   group_by(sex, name) %&gt;%
@@ -834,7 +837,7 @@ rds %&gt;%
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2018/02/reflections-on-rstudio-conf-2018/" data-tooltip="Reflections on rstudio::conf 2018">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -842,7 +845,7 @@ rds %&gt;%
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2018/01/hello-world/" data-tooltip="Hello, world!">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2018/02/reflections-on-rstudio-conf-2018/" data-tooltip="Reflections on rstudio::conf 2018">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -860,13 +863,13 @@ rds %&gt;%
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=/2018/01/little-bit-of-monica/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=/2018/03/little-bit-of-monica/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/2018/01/little-bit-of-monica/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/2018/03/little-bit-of-monica/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
@@ -914,7 +917,7 @@ rds %&gt;%
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2018/02/reflections-on-rstudio-conf-2018/" data-tooltip="Reflections on rstudio::conf 2018">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -922,7 +925,7 @@ rds %&gt;%
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2018/01/hello-world/" data-tooltip="Hello, world!">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2018/02/reflections-on-rstudio-conf-2018/" data-tooltip="Reflections on rstudio::conf 2018">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -940,13 +943,13 @@ rds %&gt;%
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=/2018/01/little-bit-of-monica/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=/2018/03/little-bit-of-monica/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/2018/01/little-bit-of-monica/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/2018/03/little-bit-of-monica/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
@@ -976,13 +979,13 @@ rds %&gt;%
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=%2F2018%2F01%2Flittle-bit-of-monica%2F">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=%2F2018%2F03%2Flittle-bit-of-monica%2F">
           <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=%2F2018%2F01%2Flittle-bit-of-monica%2F">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=%2F2018%2F03%2Flittle-bit-of-monica%2F">
           <i class="fa fa-twitter"></i><span>Share on Twitter</span>
         </a>
       </li>
@@ -1043,6 +1046,24 @@ rds %&gt;%
           <div class="media">
             
             <div class="media-body">
+              <a class="link-unstyled" href="/2018/03/little-bit-of-monica/">
+                <h3 class="media-heading">A little bit of Monica in my life</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Mar 3, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">One analysis in the R community that caught my attention is Hilary Parker’s analysis of the most poisoned baby name in US history. I was surprised that my own name didn’t show up in the analysis. If Hilary had a huge loss in 1993, what happened to Monica in 1999?
+For a period when I was a kid the name ‘Monica’ is what made the adults turn down the NPR broadcast.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
               <a class="link-unstyled" href="/2018/02/reflections-on-rstudio-conf-2018/">
                 <h3 class="media-heading">Reflections on rstudio::conf 2018</h3>
               </a>
@@ -1053,24 +1074,6 @@ rds %&gt;%
               </span>
               <div class="media-content hide-xs font-merryweather">I have a confession. The first time I used R, when I was a Freshman at Reed College and taking Math 141, I hated it. At the time, R was something that intimidated me and seemed to add more work to my schedule. Oh, how have things changed! Years later I started using R again
 What makes a successful conference experience? Coming away from the rstudio::conf 2018 with a feeling of excitement and motivation to get started on projects and to conribute to the R community is a good sign of success.</div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="/2018/01/little-bit-of-monica/">
-                <h3 class="media-heading">A little bit of Monica in my life</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Jan 1, 2018
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather">One analysis in the R community that caught my attention is Hilary Parker’s analysis of the most poisoned baby name in US history. I was surprised that my own name didn’t show up in the analysis. If Hilary had a huge loss in 1993, what happened to Monica in 1999?
-For a period when I was a kid the name ‘Monica’ is what made the adults turn down the NPR broadcast.</div>
             </div>
             <div style="clear:both;"></div>
             <hr>
@@ -1142,9 +1145,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = '\/2018\/01\/little-bit-of-monica\/';
+          this.page.url = '\/2018\/03\/little-bit-of-monica\/';
           
-            this.page.identifier = '\/2018\/01\/little-bit-of-monica\/'
+            this.page.identifier = '\/2018\/03\/little-bit-of-monica\/'
           
         };
         (function() {
