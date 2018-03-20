@@ -1,0 +1,50 @@
+---
+title: Scraping the MMWR with rvest
+author: Monica Gerber
+date: '2018-03-18'
+slug: scraping-the-mmwr-with-rvest
+categories:
+  - webscraping
+  - public health
+tags:
+  - mmwr rvest
+draft: true
+---
+
+## `rvest` package
+
+
+
+## `rvest` in action
+
+First, we need to create a html document from the URL of the page we want using `read_html()`.
+
+```{r eval=FALSE}
+library(rvest)
+cdc_site <- read_html("http://www.cdc.gov/mmwr/volumes/65/wr/mm6545a2.htm?s_cid=mm6545a2_w")
+```
+
+After we have the html document, we need to select part of the document using CSS selectors. I read up on selectorgadget (see `r vignette("selectorgadget")`) to help me figure out which selector to use. However, for this task, I found it easier to just extract the element we want, which is the table.
+
+We can use `html_node()` to extract the table in the html document. Then, we use `html_table()` to parse the html table into a data frame. Note that if there were more than 1 table, we could use `html_nodes()`, and then select which table we want with either `magrittr::extract2()` or `[[`. We set `fill = TRUE` because the columns in the the top row are merged and contain headings.
+
+```{r eval=FALSE}
+library(magrittr)
+wic_table <- cdc_site %>%
+  html_node("table")  %>% 
+  html_table(fill = TRUE)
+```
+
+
+
+```{r eval=FALSE}
+library(XML)
+library(RCurl)
+url <- "https://www.cdc.gov/mmwr/volumes/65/wr/mm6545a2.htm?s_cid=mm6545a2_w"
+tables <- getNodeSet(htmlParse(url), "//table")
+readHTMLTable(tables)
+
+?XML::readHTMLTable(cdc_site, header = TRUE, skip.rows = 2)
+```
+
+

@@ -191,11 +191,11 @@ For a period when I was a kid the name ‘Monica’ is what made the adults turn
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="http://www.monicagerber.com/cv/monica-gerber-cv.pdf">
+      <a class="sidebar-button-link " href="http://www.monicagerber.com/resume/monica-gerber-resume.pdf">
     
       <i class="sidebar-button-icon fa fa-lg fa-file"></i>
       
-      <span class="sidebar-button-desc">CV</span>
+      <span class="sidebar-button-desc">Resume</span>
     </a>
   </li>
 
@@ -837,7 +837,7 @@ rds %&gt;%
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--disabled">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2018/03/scraping-the-mmwr-with-rvest/" data-tooltip="Scraping the MMWR with rvest">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -917,7 +917,7 @@ rds %&gt;%
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--disabled">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2018/03/scraping-the-mmwr-with-rvest/" data-tooltip="Scraping the MMWR with rvest">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -1046,6 +1046,24 @@ rds %&gt;%
           <div class="media">
             
             <div class="media-body">
+              <a class="link-unstyled" href="/2018/03/scraping-the-mmwr-with-rvest/">
+                <h3 class="media-heading">Scraping the MMWR with rvest</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Mar 3, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">rvest package  rvest in action First, we need to create a html document from the URL of the page we want using read_html().
+library(rvest) cdc_site &lt;- read_html(&quot;http://www.cdc.gov/mmwr/volumes/65/wr/mm6545a2.htm?s_cid=mm6545a2_w&quot;) After we have the html document, we need to select part of the document using CSS selectors. I read up on selectorgadget (see rvest, /Library/Frameworks/R.framework/Versions/3.4/Resources/library/rvest, selectorgadget, selectorgadget.Rmd, Selectorgadget, selectorgadget.R, selectorgadget.html) to help me figure out which selector to use. However, for this task, I found it easier to just extract the element we want, which is the table.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
               <a class="link-unstyled" href="/2018/03/little-bit-of-monica/">
                 <h3 class="media-heading">A little bit of Monica in my life</h3>
               </a>
@@ -1104,7 +1122,7 @@ At MGH I have the pleasure of working on many research and evaluation projects.<
          data-message-zero="no post found"
          data-message-one="1 post found"
          data-message-other="{n} posts found">
-         3 posts found
+         4 posts found
       </p>
     </div>
   </div>

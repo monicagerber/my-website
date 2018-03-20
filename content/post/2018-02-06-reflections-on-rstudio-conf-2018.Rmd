@@ -1,0 +1,83 @@
+---
+title: Reflections on rstudio::conf 2018
+author: Monica Gerber
+date: '2018-02-06'
+slug: reflections-on-rstudio-conf-2018
+categories:
+  - conferences
+tags:
+  - rstudio::conf
+draft: true
+---
+
+I have a confession. The first time I used R, when I was a Freshman at Reed College and taking Math 141, I *hated* it. At the time, R was something that intimidated me and seemed to add more work to my schedule. Oh, how have things changed! Years later I started using R again 
+
+What makes a successful conference experience? Coming away from the rstudio::conf 2018 with a feeling of excitement and motivation to get started on projects and to conribute to the R community is a good sign of success. Here are my reflections from the conference.
+
+## 1. Contribute to the R community--it's what makes it great!
+
+Is there something that has frustrated you and that you think could be better? Find a way to work on a solution. It doesn't have to be elegant or permanent solution, but taking a first try will get the conversation started.
+
+In sessions and at the fireside chat, R users talked about their frustrations with categorical analysis. Some R users have started working on this problem, such as Andrew Bray and other authors of the `infer` package. The purpose of `infer` package is to make the syntax of tests like the Chi-square test "expressive statistical grammar that coheres with the `tidyverse` design framework." 
+
+Hadley Wickham also encouraged us to begin thinking about what a "grammar of tables" would look like, and how this could grow from the "grammar of graphics." As an epidemiologist and biostatistician and epidemiologist, this idea is exciting! Epidemiology, or the study of the distribution and determinants of disease in human populations, has its roots in using tables to display counts and make inference about [the causes of mortality](LINK). Now, some have argued that Epidemiology has [strayed from its roots](LINK) and Epidemiologists should focus more on the display of data. How would a grammar of tables inform this?
+
+As a Biostatistician/Epidemiologist 
+
+Some talks:
+
+* infer talk
+
+```{r}
+library(infer)
+library(tidyverse)
+
+mtcars %>%
+  specify(response = mpg) %>%
+  hypothesize(null = "point", mu = 15) %>%
+  generate(reps = 100, type = "bootstrap") %>%
+  calculate(stat = "mean")
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

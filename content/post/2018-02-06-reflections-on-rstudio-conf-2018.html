@@ -1,0 +1,56 @@
+---
+title: Reflections on rstudio::conf 2018
+author: Monica Gerber
+date: '2018-02-06'
+slug: reflections-on-rstudio-conf-2018
+categories:
+  - conferences
+tags:
+  - rstudio::conf
+draft: true
+---
+
+
+
+<p>I have a confession. The first time I used R, when I was a Freshman at Reed College and taking Math 141, I <em>hated</em> it. At the time, R was something that intimidated me and seemed to add more work to my schedule. Oh, how have things changed! Years later I started using R again</p>
+<p>What makes a successful conference experience? Coming away from the rstudio::conf 2018 with a feeling of excitement and motivation to get started on projects and to conribute to the R community is a good sign of success. Here are my reflections from the conference.</p>
+<div id="contribute-to-the-r-communityits-what-makes-it-great" class="section level2">
+<h2>1. Contribute to the R community–it’s what makes it great!</h2>
+<p>Is there something that has frustrated you and that you think could be better? Find a way to work on a solution. It doesn’t have to be elegant or permanent solution, but taking a first try will get the conversation started.</p>
+<p>In sessions and at the fireside chat, R users talked about their frustrations with categorical analysis. Some R users have started working on this problem, such as Andrew Bray and other authors of the <code>infer</code> package. The purpose of <code>infer</code> package is to make the syntax of tests like the Chi-square test “expressive statistical grammar that coheres with the <code>tidyverse</code> design framework.”</p>
+<p>Hadley Wickham also encouraged us to begin thinking about what a “grammar of tables” would look like, and how this could grow from the “grammar of graphics.” As an epidemiologist and biostatistician and epidemiologist, this idea is exciting! Epidemiology, or the study of the distribution and determinants of disease in human populations, has its roots in using tables to display counts and make inference about <a href="LINK">the causes of mortality</a>. Now, some have argued that Epidemiology has <a href="LINK">strayed from its roots</a> and Epidemiologists should focus more on the display of data. How would a grammar of tables inform this?</p>
+<p>As a Biostatistician/Epidemiologist</p>
+<p>Some talks:</p>
+<ul>
+<li>infer talk</li>
+</ul>
+<pre class="r"><code>library(infer)
+library(tidyverse)</code></pre>
+<pre><code>## ── Attaching packages ──────────────────────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
+<pre><code>## ✔ ggplot2 2.2.1     ✔ purrr   0.2.4
+## ✔ tibble  1.4.1     ✔ dplyr   0.7.4
+## ✔ tidyr   0.7.2     ✔ stringr 1.2.0
+## ✔ readr   1.1.1     ✔ forcats 0.2.0</code></pre>
+<pre><code>## ── Conflicts ─────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()</code></pre>
+<pre class="r"><code>mtcars %&gt;%
+  specify(response = mpg) %&gt;%
+  hypothesize(null = &quot;point&quot;, mu = 15) %&gt;%
+  generate(reps = 100, type = &quot;bootstrap&quot;) %&gt;%
+  calculate(stat = &quot;mean&quot;)</code></pre>
+<pre><code>## # A tibble: 100 x 2
+##    replicate  stat
+##        &lt;int&gt; &lt;dbl&gt;
+##  1         1  16.5
+##  2         2  16.3
+##  3         3  15.4
+##  4         4  14.9
+##  5         5  14.8
+##  6         6  16.1
+##  7         7  12.7
+##  8         8  16.1
+##  9         9  15.0
+## 10        10  15.2
+## # ... with 90 more rows</code></pre>
+</div>

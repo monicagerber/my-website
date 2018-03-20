@@ -29,5 +29,23 @@
       <description></description>
     </item>
     
+    <item>
+      <title>Public Health</title>
+      <link>/categories/public-health/</link>
+      <pubDate>Sun, 18 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/public-health/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Webscraping</title>
+      <link>/categories/webscraping/</link>
+      <pubDate>Sun, 18 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/webscraping/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

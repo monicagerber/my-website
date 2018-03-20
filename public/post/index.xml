@@ -6,10 +6,20 @@
     <description>Recent content in Posts on Monica W. Gerber</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 04 Mar 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 18 Mar 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Scraping the MMWR with rvest</title>
+      <link>/2018/03/scraping-the-mmwr-with-rvest/</link>
+      <pubDate>Sun, 18 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/03/scraping-the-mmwr-with-rvest/</guid>
+      <description>rvest package  rvest in action First, we need to create a html document from the URL of the page we want using read_html().
+library(rvest) cdc_site &amp;lt;- read_html(&amp;quot;http://www.cdc.gov/mmwr/volumes/65/wr/mm6545a2.htm?s_cid=mm6545a2_w&amp;quot;) After we have the html document, we need to select part of the document using CSS selectors. I read up on selectorgadget (see rvest, /Library/Frameworks/R.framework/Versions/3.4/Resources/library/rvest, selectorgadget, selectorgadget.Rmd, Selectorgadget, selectorgadget.R, selectorgadget.html) to help me figure out which selector to use. However, for this task, I found it easier to just extract the element we want, which is the table.</description>
+    </item>
     
     <item>
       <title>A little bit of Monica in my life</title>

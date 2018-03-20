@@ -182,11 +182,11 @@
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="http://www.monicagerber.com/cv/monica-gerber-cv.pdf">
+      <a class="sidebar-button-link " href="http://www.monicagerber.com/resume/monica-gerber-resume.pdf">
     
       <i class="sidebar-button-icon fa fa-lg fa-file"></i>
       
-      <span class="sidebar-button-desc">CV</span>
+      <span class="sidebar-button-desc">Resume</span>
     </a>
   </li>
 
@@ -260,7 +260,7 @@
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      About my work My name is Monica Gerber and I am a Biostatistician located in Boston, Massachusetts. I have worked at Massachusetts General Hospital (MGH) since January 2015, when I joined the Department of Psychiatry to work in a research group focused on population mental health. Currently, I work in General Academic Pediatrics and the Center for Community Health Improvement (CCHI).
+      About my work My name is Monica Gerber and I am a Biostatistician located in Boston, Massachusetts. I started working at Massachusetts General Hospital (MGH) in January 2015, when I joined the Department of Psychiatry to work in a research group focused on population mental health. Currently, I work in General Academic Pediatrics and the Center for Community Health Improvement (CCHI).
 At MGH I have the pleasure of working on many research and evaluation projects.
       <p>
         <a href="/2018/01/hello-world/" class="postShorten-excerpt_link link">Continue reading</a>
@@ -342,16 +342,52 @@ At MGH I have the pleasure of working on many research and evaluation projects.
           <div class="media">
             
             <div class="media-body">
-              <a class="link-unstyled" href="/2018/01/little-bit-of-monica/">
+              <a class="link-unstyled" href="/2018/03/scraping-the-mmwr-with-rvest/">
+                <h3 class="media-heading">Scraping the MMWR with rvest</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Mar 3, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">rvest package  rvest in action First, we need to create a html document from the URL of the page we want using read_html().
+library(rvest) cdc_site &lt;- read_html(&quot;http://www.cdc.gov/mmwr/volumes/65/wr/mm6545a2.htm?s_cid=mm6545a2_w&quot;) After we have the html document, we need to select part of the document using CSS selectors. I read up on selectorgadget (see rvest, /Library/Frameworks/R.framework/Versions/3.4/Resources/library/rvest, selectorgadget, selectorgadget.Rmd, Selectorgadget, selectorgadget.R, selectorgadget.html) to help me figure out which selector to use. However, for this task, I found it easier to just extract the element we want, which is the table.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="/2018/03/little-bit-of-monica/">
                 <h3 class="media-heading">A little bit of Monica in my life</h3>
               </a>
               <span class="media-meta">
                 <span class="media-date text-small">
-                  Jan 1, 2018
+                  Mar 3, 2018
                 </span>
               </span>
               <div class="media-content hide-xs font-merryweather">One analysis in the R community that caught my attention is Hilary Parker’s analysis of the most poisoned baby name in US history. I was surprised that my own name didn’t show up in the analysis. If Hilary had a huge loss in 1993, what happened to Monica in 1999?
 For a period when I was a kid the name ‘Monica’ is what made the adults turn down the NPR broadcast.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="/2018/02/reflections-on-rstudio-conf-2018/">
+                <h3 class="media-heading">Reflections on rstudio::conf 2018</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Feb 2, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">I have a confession. The first time I used R, when I was a Freshman at Reed College and taking Math 141, I hated it. At the time, R was something that intimidated me and seemed to add more work to my schedule. Oh, how have things changed! Years later I started using R again
+What makes a successful conference experience? Coming away from the rstudio::conf 2018 with a feeling of excitement and motivation to get started on projects and to conribute to the R community is a good sign of success.</div>
             </div>
             <div style="clear:both;"></div>
             <hr>
@@ -368,7 +404,7 @@ For a period when I was a kid the name ‘Monica’ is what made the adults turn
                   Jan 1, 2018
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather">About my work My name is Monica Gerber and I am a Biostatistician located in Boston, Massachusetts. I have worked at Massachusetts General Hospital (MGH) since January 2015, when I joined the Department of Psychiatry to work in a research group focused on population mental health. Currently, I work in General Academic Pediatrics and the Center for Community Health Improvement (CCHI).
+              <div class="media-content hide-xs font-merryweather">About my work My name is Monica Gerber and I am a Biostatistician located in Boston, Massachusetts. I started working at Massachusetts General Hospital (MGH) in January 2015, when I joined the Department of Psychiatry to work in a research group focused on population mental health. Currently, I work in General Academic Pediatrics and the Center for Community Health Improvement (CCHI).
 At MGH I have the pleasure of working on many research and evaluation projects.</div>
             </div>
             <div style="clear:both;"></div>
@@ -382,7 +418,7 @@ At MGH I have the pleasure of working on many research and evaluation projects.<
          data-message-zero="no post found"
          data-message-one="1 post found"
          data-message-other="{n} posts found">
-         2 posts found
+         4 posts found
       </p>
     </div>
   </div>

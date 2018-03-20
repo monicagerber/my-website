@@ -1,0 +1,37 @@
+---
+title: Scraping the MMWR with rvest
+author: Monica Gerber
+date: '2018-03-18'
+slug: scraping-the-mmwr-with-rvest
+categories:
+  - webscraping
+  - public health
+tags:
+  - mmwr rvest
+draft: true
+---
+
+
+
+<div id="rvest-package" class="section level2">
+<h2><code>rvest</code> package</h2>
+</div>
+<div id="rvest-in-action" class="section level2">
+<h2><code>rvest</code> in action</h2>
+<p>First, we need to create a html document from the URL of the page we want using <code>read_html()</code>.</p>
+<pre class="r"><code>library(rvest)
+cdc_site &lt;- read_html(&quot;http://www.cdc.gov/mmwr/volumes/65/wr/mm6545a2.htm?s_cid=mm6545a2_w&quot;)</code></pre>
+<p>After we have the html document, we need to select part of the document using CSS selectors. I read up on selectorgadget (see rvest, /Library/Frameworks/R.framework/Versions/3.4/Resources/library/rvest, selectorgadget, selectorgadget.Rmd, Selectorgadget, selectorgadget.R, selectorgadget.html) to help me figure out which selector to use. However, for this task, I found it easier to just extract the element we want, which is the table.</p>
+<p>We can use <code>html_node()</code> to extract the table in the html document. Then, we use <code>html_table()</code> to parse the html table into a data frame. Note that if there were more than 1 table, we could use <code>html_nodes()</code>, and then select which table we want with either <code>magrittr::extract2()</code> or <code>[[</code>. We set <code>fill = TRUE</code> because the columns in the the top row are merged and contain headings.</p>
+<pre class="r"><code>library(magrittr)
+wic_table &lt;- cdc_site %&gt;%
+  html_node(&quot;table&quot;)  %&gt;% 
+  html_table(fill = TRUE)</code></pre>
+<pre class="r"><code>library(XML)
+library(RCurl)
+url &lt;- &quot;https://www.cdc.gov/mmwr/volumes/65/wr/mm6545a2.htm?s_cid=mm6545a2_w&quot;
+tables &lt;- getNodeSet(htmlParse(url), &quot;//table&quot;)
+readHTMLTable(tables)
+
+?XML::readHTMLTable(cdc_site, header = TRUE, skip.rows = 2)</code></pre>
+</div>

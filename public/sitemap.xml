@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/2018/03/scraping-the-mmwr-with-rvest/</loc>
+    <lastmod>2018-03-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/2018/03/little-bit-of-monica/</loc>
     <lastmod>2018-03-04T00:00:00+00:00</lastmod>
   </url>
@@ -47,14 +52,26 @@
   </url>
   
   <url>
+    <loc>/tags/mmwr-rvest/</loc>
+    <lastmod>2018-03-18T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/</loc>
-    <lastmod>2018-03-04T00:00:00+00:00</lastmod>
+    <lastmod>2018-03-18T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/post/</loc>
-    <lastmod>2018-03-04T00:00:00+00:00</lastmod>
+    <lastmod>2018-03-18T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/public-health/</loc>
+    <lastmod>2018-03-18T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -67,6 +84,12 @@
   <url>
     <loc>/tags/</loc>
     <lastmod>2018-03-04T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/webscraping/</loc>
+    <lastmod>2018-03-18T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
