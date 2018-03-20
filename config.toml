@@ -94,10 +94,10 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
   
 [[menu.links]]
   weight = 3
-  identifier = "cv"
-  name = "CV"
+  identifier = "resume"
+  name = "Resume"
   pre = "<i class=\"sidebar-button-icon fa fa-lg fa-file\"></i>"
-  url = "http://www.monicagerber.com/cv/monica-gerber-cv.pdf" 
+  url = "http://www.monicagerber.com/resume/monica-gerber-resume.pdf" 
 
 [[menu.misc]]
   weight = 3
