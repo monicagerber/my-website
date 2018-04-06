@@ -22,7 +22,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Hugo 0.32 with theme Tranquilpeak 0.4.3-BETA">
-    <title>Scraping the MMWR with rvest</title>
+    <title>Reflections on rstudio::conf 2018</title>
     <meta name="author" content="Monica W. Gerber">
     <meta name="keywords" content="">
 
@@ -30,18 +30,15 @@
     
 
     
-    <meta name="description" content="rvest in action First, we need to create a html document from the URL of the page we want using read_html().
-library(rvest) cdc_site &lt;- read_html(&quot;http://www.cdc.gov/mmwr/volumes/65/wr/mm6545a2.htm?s_cid=mm6545a2_w&quot;) After we have the html document, we need to select part of the document using CSS selectors. I read up on selectorgadget (see rvest, /Library/Frameworks/R.framework/Versions/3.4/Resources/library/rvest, selectorgadget, selectorgadget.Rmd, Selectorgadget, selectorgadget.R, selectorgadget.html) to help me figure out which selector to use. However, for this task, I found it easier to just extract the type of element we want, which is the table.">
-    <meta property="og:description" content="rvest in action First, we need to create a html document from the URL of the page we want using read_html().
-library(rvest) cdc_site &lt;- read_html(&quot;http://www.cdc.gov/mmwr/volumes/65/wr/mm6545a2.htm?s_cid=mm6545a2_w&quot;) After we have the html document, we need to select part of the document using CSS selectors. I read up on selectorgadget (see rvest, /Library/Frameworks/R.framework/Versions/3.4/Resources/library/rvest, selectorgadget, selectorgadget.Rmd, Selectorgadget, selectorgadget.R, selectorgadget.html) to help me figure out which selector to use. However, for this task, I found it easier to just extract the type of element we want, which is the table.">
+    <meta name="description" content="It’s been a couple of months since rstudio::conf 2018 and I’m still mulling over what I learned in 2 days in San Diego. I grew up in the sunshine of San Diego, so it was good to be back and also feel inspired by the amazing energy of the R community. Here’s a reflection on what the conference was like, what ideas I’ve been running with, and how what I learned will change what I do over the course of the next year.">
+    <meta property="og:description" content="It’s been a couple of months since rstudio::conf 2018 and I’m still mulling over what I learned in 2 days in San Diego. I grew up in the sunshine of San Diego, so it was good to be back and also feel inspired by the amazing energy of the R community. Here’s a reflection on what the conference was like, what ideas I’ve been running with, and how what I learned will change what I do over the course of the next year.">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="Scraping the MMWR with rvest">
-    <meta property="og:url" content="/2018/03/scraping-the-mmwr-with-rvest/">
+    <meta property="og:title" content="Reflections on rstudio::conf 2018">
+    <meta property="og:url" content="/2018/04/reflections-on-rstudio-conf-2018/">
     <meta property="og:site_name" content="Monica W. Gerber">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Monica W. Gerber">
-    <meta name="twitter:description" content="rvest in action First, we need to create a html document from the URL of the page we want using read_html().
-library(rvest) cdc_site &lt;- read_html(&quot;http://www.cdc.gov/mmwr/volumes/65/wr/mm6545a2.htm?s_cid=mm6545a2_w&quot;) After we have the html document, we need to select part of the document using CSS selectors. I read up on selectorgadget (see rvest, /Library/Frameworks/R.framework/Versions/3.4/Resources/library/rvest, selectorgadget, selectorgadget.Rmd, Selectorgadget, selectorgadget.R, selectorgadget.html) to help me figure out which selector to use. However, for this task, I found it easier to just extract the type of element we want, which is the table.">
+    <meta name="twitter:description" content="It’s been a couple of months since rstudio::conf 2018 and I’m still mulling over what I learned in 2 days in San Diego. I grew up in the sunshine of San Diego, so it was good to be back and also feel inspired by the amazing energy of the R community. Here’s a reflection on what the conference was like, what ideas I’ve been running with, and how what I learned will change what I do over the course of the next year.">
     
     
 
@@ -226,15 +223,15 @@ library(rvest) cdc_site &lt;- read_html(&quot;http://www.cdc.gov/mmwr/volumes/65
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      Scraping the MMWR with rvest
+      Reflections on rstudio::conf 2018
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2018-03-18T00:00:00Z">
+      <time itemprop="datePublished" datetime="2018-04-05T00:00:00Z">
         
-  March 18, 2018
+  April 5, 2018
 
       </time>
     
@@ -243,9 +240,7 @@ library(rvest) cdc_site &lt;- read_html(&quot;http://www.cdc.gov/mmwr/volumes/65
   
     <span>in</span>
     
-      <a class="category-link" href="/categories/webscraping">webscraping</a>, 
-    
-      <a class="category-link" href="/categories/public-health">public health</a>
+      <a class="category-link" href="/categories/conferences">conferences</a>
     
   
 
@@ -255,146 +250,60 @@ library(rvest) cdc_site &lt;- read_html(&quot;http://www.cdc.gov/mmwr/volumes/65
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <div id="rvest-in-action" class="section level2">
-<h2>rvest in action</h2>
-<p>First, we need to create a html document from the URL of the page we want using <code>read_html()</code>.</p>
-<pre class="r"><code>library(rvest)
-cdc_site &lt;- read_html(&quot;http://www.cdc.gov/mmwr/volumes/65/wr/mm6545a2.htm?s_cid=mm6545a2_w&quot;)</code></pre>
-<p>After we have the html document, we need to select part of the document using CSS selectors. I read up on selectorgadget (see rvest, /Library/Frameworks/R.framework/Versions/3.4/Resources/library/rvest, selectorgadget, selectorgadget.Rmd, Selectorgadget, selectorgadget.R, selectorgadget.html) to help me figure out which selector to use. However, for this task, I found it easier to just extract the type of element we want, which is the table.</p>
-<p>We can use <code>html_node()</code> to extract the table in the html document. Then, we use <code>html_table()</code> to parse the html table into a data frame. Note that if there were more than 1 table, we could use <code>html_nodes()</code>, and then select which table we want with either <code>magrittr::extract2()</code> or <code>[[</code>. We set <code>fill = TRUE</code> because the columns in the the top row are merged and contain headings.</p>
-<pre class="r"><code>library(magrittr)
-wic_table &lt;- cdc_site %&gt;%
-  html_node(&quot;table&quot;)  %&gt;% 
-  html_table(fill = TRUE)</code></pre>
-<p>That’s pretty cool that we can get the data into a data frame in just a few lines of code!</p>
+              <p>It’s been a couple of months since <a href="https://www.rstudio.com/conference/">rstudio::conf 2018</a> and I’m still mulling over what I learned in 2 days in San Diego. I grew up in the sunshine of San Diego, so it was good to be back and also feel inspired by the amazing energy of the R community. Here’s a reflection on what the conference was like, what ideas I’ve been running with, and how what I learned will change what I do over the course of the next year.</p>
+<div id="i-can-contribute-no-matter-how-small" class="section level2">
+<h2>1. I can contribute, no matter how small</h2>
+<p>My biggest take-away from the conference is that the reason why R is awesome is that anyone can contribute to the community, and many leaders in the R community care about the diversity of the community. This was reflected in the many talks aimed at helping people contribute to R packages, teach R, and publicize their work.</p>
+<p>If there is something that frustrates you about a certain task or package in R, you don’t have to sit around and wish for somebody at the corporate headquarters to make it better, you can find a way to immediately contribute to a solution. It doesn’t have to be a elegant or permanent solution, but taking a first try at solving the problem will get others interested and start the conversation. There are many tools from <a href="https://bookdown.org/yihui/blogdown/">blogdown</a> to the <a href="https://community.rstudio.com/">RStudio Community</a> to the <a href="http://usethis.r-lib.org/">usethis</a> package to make getting your ideas out there easier.</p>
+<p>One of my favorite examples of this was Andrew Bray’s talk on the <a href="https://infer.netlify.com/">infer package</a>. One of people’s complaints about R is that there is no standard way of setting up a statistical test in R. The goal of the infer package is to perform statistical inference in a way that is intuitive and logically consistent with the tidyverse. From the talk, it sounds like the infer developers would be happy to hear from prospective contributors to the package.</p>
+<p>Talks to watch:</p>
+<ul>
+<li><a href="https://www.rstudio.com/resources/videos/contributing-to-tidyverse-packages/">Contributing to tidyverse packages</a> by Mara Averick</li>
+<li><a href="https://www.rstudio.com/resources/videos/fireside-chat-with-rstudio-tidyverse-discussion/">Fireside chat with Rstudio</a></li>
+<li><a href="https://www.rstudio.com/resources/videos/you-can-make-a-package-in-20-minutes/">You can make a package in 20 minutes</a> by Jim Hester</li>
+<li><a href="https://www.rstudio.com/resources/videos/infer-a-package-for-tidy-statistical-inference">infer: a package for tidy statistical inference</a> by Andrew Bray</li>
+</ul>
 </div>
-<div id="clean-up" class="section level2">
-<h2>clean up</h2>
-<p>We’ve successfully scrapped the data, but now our problem is that the data frame consists of character varibles because there were 3 rows of column headers:</p>
-<pre class="r"><code>str(wic_table)</code></pre>
-<p>First I’ll rename everything using <code>set_names()</code> from magrittr. And then I’ll clean this up using functions from dplyr and tidyr from the tidyverse.</p>
-<pre class="r"><code>library(tidyverse)
-
-tidy_wic &lt;- wic_table %&gt;%
-  set_names(c(&quot;state&quot;,
-              &quot;n_2000&quot;,
-               &quot;n_2004&quot;,
-               &quot;n_2010&quot;,
-               &quot;n_2014&quot;,
-               &quot;obesity_2000&quot;,
-               &quot;obesity_2004&quot;,
-               &quot;obesity_2010&quot;,
-               &quot;obesity_2014&quot;,
-               &quot;dif_2004&quot;,
-               &quot;dif_2010&quot;,
-               &quot;dif_2014&quot;)) %&gt;%
-  filter(row_number() &gt; 2,
-         state != &quot;Territory&quot;) %&gt;%
-  gather(key, measure, -state) %&gt;%
-  separate(key, into = c(&quot;stat&quot;, &quot;year&quot;), sep = &quot;_&quot;) %&gt;%
-  spread(key = stat, value = measure) %&gt;%
-  separate(dif, into = c(&quot;dif&quot;, &quot;ci&quot;), sep = &quot; &quot;, extra = &quot;merge&quot;) %&gt;%
-  separate(ci, into = c(&quot;lower_ci&quot;, &quot;upper_ci&quot;), sep = &quot; to &quot;) %&gt;%
-  mutate_at(vars(n, dif, lower_ci, upper_ci, obesity), parse_number) %&gt;%
-  as_tibble() </code></pre>
-<p>Ta-da! It’s now in a much more usable format!</p>
+<div id="r-makes-my-job-a-whole-lot-more-fun" class="section level2">
+<h2>2. R makes my job a whole lot more fun</h2>
+<p>When I first started learning R when I was in grad school, another student sent me <a href="https://www.facebook.com/photo.php?fbid=10153987792145791&amp;set=a.10150155755935791.338654.617055790&amp;type=3&amp;theater">this comic</a> with the message “hope it’s going well for you.” Apparently this comic was originally about a video game, but people seem to think it accurately describes learning R as well. At the the time I didn’t know anyone who was using R and I abandoned learning it in favor of the program used in my biostatistics department. Later, when in my first job post-grad school, I dove back into R as a way to save myself from some of the frustrations I had working in that role.</p>
+<p>At Rstudio::conf this was a theme that seemed to resonate with a lot of people: R was a way to make their jobs more enlivening and joyful and a way to innovate in their fields. Sure, the learning curve might be a bit steep, but arguably with the tidyverse packages, this is less of a concern. Students can go from install to plotting in ggplot2 in no time. And in the biostatistics of epidemiology field, R can help us think more rigorously about the methods we’re using. For me, the biggest plus of using R is that I’m constantly learning something new and improving my workflow, and that’s what makes me happy.</p>
+<p>Talks to watch:</p>
+<ul>
+<li><a href="https://www.rstudio.com/resources/videos/five-packages-in-five-weeks-from-boredom-to-contribution-via-blogging/">Five packages in five weeks–from boredom to contribution via blogging</a> by Giora Simchoni, author of the <a href="http://giorasimchoni.com/">Sex, Drugs and Data</a> blog</li>
+<li><a href="https://www.rstudio.com/resources/videos/a-sas-to-r-success-story/">A SAS-to-R success story</a> by Elizabeth J. Atkinson</li>
+<li><a href="https://www.rstudio.com/resources/videos/accelerating-cancer-research-with-r/">Accelerating cancer research with R</a> by Sandra Griffith</li>
+</ul>
 </div>
-<div id="visualize" class="section level2">
-<h2>visualize</h2>
-<p>Now that it’s in a tidy format, we can create our own data visualizations.</p>
-<p><a href="https://hafen.github.io/geofacet/">geofacet</a></p>
-<p><a href="https://talks.cpsievert.me/20180202/#23">plotly</a></p>
-<pre class="r"><code>library(leaflet)
-library(sp)
-library(geojson)
-library(geojsonio)
-url &lt;- &quot;http://leafletjs.com/examples/choropleth/us-states.js&quot;
-
-# read as text file
-doc &lt;- readLines(url)
-
-# remove the javascript assignment at the front 
-doc2 &lt;- gsub(&quot;var statesData = &quot;, &quot;&quot;, doc)
-
-# write out as a temp file and read
-write(doc2, file = &quot;tempgeo.json&quot;)
-states &lt;- geojson_read(&quot;tempgeo.json&quot;, what = &quot;sp&quot;)
-
-# ^ found out how to get this data into R thanks to this stack overflow post! 
-# https://stackoverflow.com/questions/43443260/how-to-download-geojson-data-and-read-it-to-r
-
-# merge data
-# first filter out non-states
-
-wic_states &lt;- tidy_wic %&gt;%
-  filter(!state %in% c(&quot;DC&quot;, &quot;Overall¶&quot;, &quot;Northern Mariana Islands&quot;,
-                       &quot;Puerto Rico&quot;, &quot;Virgin Islands&quot;, &quot;Guam&quot;,
-                       &quot;American Samoa&quot;)) %&gt;%
-  filter(year == &quot;2014&quot;)
-
-wic_sp &lt;- merge(states, wic_states, 
-                by.x = &quot;name&quot;, by.y = &quot;state&quot;,
-                duplicateGeoms = TRUE)
-
-bins &lt;- c(7, 12.66, 13.52, 14.78, 16.3, 20)
-pal &lt;- colorBin(&quot;YlOrRd&quot;, domain = wic_sp$obesity, bins = bins)
-
-labels &lt;- sprintf(
-  &quot;&lt;strong&gt;%s&lt;/strong&gt;&quot;,
-  wic_sp$obesity
-) %&gt;% lapply(htmltools::HTML)
-
-wic_sp %&gt;%
-  leaflet() %&gt;%
-  setView(-96, 37.8, 4) %&gt;%
-  addTiles() %&gt;%
-  addPolygons(
-  fillColor = ~pal(obesity),
-  weight = 2,
-  opacity = 1,
-  color = &quot;white&quot;,
-  dashArray = &quot;3&quot;,
-  fillOpacity = 0.7)
-
-wic_states %&gt;% 
-  summarise(`20%`=quantile(obesity, probs=0.20),
-            `40%`=quantile(obesity, probs=0.4),
-            `60%`=quantile(obesity, probs=0.60),
-            `80%`=quantile(obesity, probs=0.80))</code></pre>
-<pre class="r"><code>html_doc &lt;- read_html(&quot;https://www.cdc.gov/mmwr/volumes/67/wr/mm6706a3.htm?s_cid=mm6706a3_w&quot;)
-
-obesity_table &lt;- html_doc %&gt;%
-  html_node(&quot;table&quot;)  %&gt;% 
-  html_table(fill = TRUE)</code></pre>
-<pre class="r"><code>library(rvest)
-library(tidyverse)
-
-mmwr_site &lt;- read_html(&quot;https://www.cdc.gov/mmwr/mmwr_wk/wk_pvol.html&quot;)
-
-css &lt;- paste0(paste0(&quot;#anch_&quot;, 13:47), collapse=&quot;, &quot;)
-
-issues &lt;- mmwr_site %&gt;%
-  html_nodes(css = css) %&gt;%
-  html_attr(&quot;href&quot;)
-
-issues[1:3] &lt;- paste0(&quot;https://www.cdc.gov&quot;, issues[1:3])
-
-
-test &lt;- read_html(issues[1]) %&gt;%
-  html_nodes(css = &quot;ul:nth-child(10) li&quot;) </code></pre>
-<pre class="r"><code>library(RISmed)
-
-myquery &lt;- &quot;MMWR. Morbidity and mortality weekly report[Journal]&quot;
-
-search_query &lt;- EUtilsSummary(myquery, 
-                              type = &quot;esearch&quot;,
-                              db = &quot;pubmed&quot;)
-summary(search_query)
-
-records &lt;- EUtilsGet(search_query)
-
-pubmed_data &lt;- data.frame(&#39;title&#39; = ArticleTitle(records),
-                      &#39;abstract&#39; = AbstractText(records))</code></pre>
+<div id="im-a-biostatistician-but-i-can-learn-a-lot-from-other-fields" class="section level2">
+<h2>3. I’m a biostatistician, but I can learn a lot from other fields</h2>
+<p>Rstudio::conf was the first non-academic conference that I went to, and the plus of going to the conference was that there were data scientists from many different backgrounds and industries to learn from. Sometimes, when I talk to someone from someone from, say, a political science background, I realize that they have a different ‘language’ for talking about methods. At first, this can be frustrating, but then I realized that approaching something from a different mindset can lead me to a solution I wouldn’t have found otherwise.</p>
+<p>The conference was a jumping off point for me to learn about how others are using R and structuring their workflows. There are many R users blogging about how they’re using R for fun or at work. Setting up an RSS feed for all of these blogs provides endless inspiration for both my work and fun side projects.</p>
+<p>One example of this is how data scientists can use agile development, a well-established practice in modern software development. As a team of 1, this has drastically changed how I approach my work, and could be the focus of a whole other post (or series of posts). Luckily, Elaine McVey wrote a couple of posts on her <a href="http://www.datawoman.com/">blog</a> about this and spoke about it at the conference.</p>
+<p>Talks to watch:</p>
+<ul>
+<li><a href="https://www.rstudio.com/resources/videos/agile-data-science/">Agile data science</a> by Elaine McVey</li>
+<li><a href="https://www.rstudio.com/resources/videos/differentiating-by-data-science/">Differentiating by data science</a> by Eric Colson</li>
+<li><a href="https://www.rstudio.com/resources/videos/imagine-boston-2030-using-r-shiny-to-keep-ourselves-accountable-and-empower-the-public/">Imagine Boston 2030: Using R-Shiny to keep ourselves accountable and empower the public</a> by Kayla Patel</li>
+</ul>
+</div>
+<div id="im-inspired-to-work-with-my-local-r-user-groups" class="section level2">
+<h2>4. I’m inspired to work with my local R user groups</h2>
+<p>Above I mentioned that I’m a team of 1, and this could make it is easy to get stuck in a certain way of doing things. Since no one else in my office is using R, my colleagues might not appreciate the fact that I finally figured out how <code>facet_grid()</code> can improve my <code>ggplot2</code> creations. Luckily, there was a strong presence of <a href="https://rladies.org/">Rladies</a> at rstudio::conf, which inspired me to do some organizing for my local Boston chapter. Finding these networks is incredibly important to me!</p>
+<p>It also helped me think more about how to reach out to other R users at my institution, many of whom may be ‘siloed’ in their academic departments. Luckily, we have an organizational GitLab account, which is the perfect place to post resources for organization-specific information about R, such as how to use R’s database tools to connect to data resources.</p>
+<p>Here are some communities I’ve found out about recently:</p>
+<ul>
+<li><a href="https://rladies.org/">R-Ladies Global</a> and <a href="https://www.meetup.com/rladies-boston/">R-Ladies Boston</a></li>
+<li><a href="https://ropensci.org/">rOpenSci</a></li>
+<li><a href="http://www.datacarpentry.org/">Data Carpentry</a></li>
+<li><a href="https://www.repidemicsconsortium.org/">The R Epidemics Consortium</a></li>
+</ul>
+</div>
+<div id="i-am-still-catching-up-on-rstudioconf-2018" class="section level2">
+<h2>5. I am still catching up on Rstudio::conf 2018</h2>
+<p>Hadley Wickham told us at the beginning of the conference that they purposely designed it so that we would have a really hard time picking which talks to attend. Luckily, many of the talks are <a href="https://www.rstudio.com/resources/videos/rstudioconf-2018-talks/">posted</a> on the Rstudio website, so I can catch up on the ones I missed!</p>
+<hr />
+<p>Thanks for reading, and see you on the internet!</p>
 </div>
 
               
@@ -408,7 +317,7 @@ pubmed_data &lt;- data.frame(&#39;title&#39; = ArticleTitle(records),
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">TAGGED IN</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="/tags/mmwr-rvest/">mmwr rvest</a>
+  <a class="tag tag--primary tag--small" href="/tags/rstudioconf/">rstudio::conf</a>
 
                   </div>
                 
@@ -421,7 +330,7 @@ pubmed_data &lt;- data.frame(&#39;title&#39; = ArticleTitle(records),
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2018/04/reflections-on-rstudio-conf-2018/" data-tooltip="Reflections on rstudio::conf 2018">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -429,7 +338,7 @@ pubmed_data &lt;- data.frame(&#39;title&#39; = ArticleTitle(records),
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2018/03/little-bit-of-monica/" data-tooltip="A little bit of Monica in my life">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2018/03/scraping-the-mmwr-with-rvest/" data-tooltip="Scraping the MMWR with rvest">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -447,13 +356,13 @@ pubmed_data &lt;- data.frame(&#39;title&#39; = ArticleTitle(records),
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=/2018/03/scraping-the-mmwr-with-rvest/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=/2018/04/reflections-on-rstudio-conf-2018/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/2018/03/scraping-the-mmwr-with-rvest/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/2018/04/reflections-on-rstudio-conf-2018/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
@@ -501,7 +410,7 @@ pubmed_data &lt;- data.frame(&#39;title&#39; = ArticleTitle(records),
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2018/04/reflections-on-rstudio-conf-2018/" data-tooltip="Reflections on rstudio::conf 2018">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -509,7 +418,7 @@ pubmed_data &lt;- data.frame(&#39;title&#39; = ArticleTitle(records),
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2018/03/little-bit-of-monica/" data-tooltip="A little bit of Monica in my life">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2018/03/scraping-the-mmwr-with-rvest/" data-tooltip="Scraping the MMWR with rvest">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -527,13 +436,13 @@ pubmed_data &lt;- data.frame(&#39;title&#39; = ArticleTitle(records),
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=/2018/03/scraping-the-mmwr-with-rvest/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=/2018/04/reflections-on-rstudio-conf-2018/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/2018/03/scraping-the-mmwr-with-rvest/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/2018/04/reflections-on-rstudio-conf-2018/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
@@ -563,13 +472,13 @@ pubmed_data &lt;- data.frame(&#39;title&#39; = ArticleTitle(records),
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=%2F2018%2F03%2Fscraping-the-mmwr-with-rvest%2F">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=%2F2018%2F04%2Freflections-on-rstudio-conf-2018%2F">
           <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=%2F2018%2F03%2Fscraping-the-mmwr-with-rvest%2F">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=%2F2018%2F04%2Freflections-on-rstudio-conf-2018%2F">
           <i class="fa fa-twitter"></i><span>Share on Twitter</span>
         </a>
       </li>
@@ -746,9 +655,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = '\/2018\/03\/scraping-the-mmwr-with-rvest\/';
+          this.page.url = '\/2018\/04\/reflections-on-rstudio-conf-2018\/';
           
-            this.page.identifier = '\/2018\/03\/scraping-the-mmwr-with-rvest\/'
+            this.page.identifier = '\/2018\/04\/reflections-on-rstudio-conf-2018\/'
           
         };
         (function() {

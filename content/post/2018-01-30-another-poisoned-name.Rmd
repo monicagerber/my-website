@@ -39,7 +39,7 @@ In Hilary's analysis she looked at the top 1000 names in a given year, so I will
 
 First I will limit the data set to the top 1000 names in a year and then calculate the relative risk and percentage loss. 
 
-As Hilary explains in her post, the relative risk is a measure used to compare propotions. In public health we use it to compare the proportion of people who get a disease who were *exposed* to something to the proportion of people who get a disease who were *unexposed* to something. For example, if 10 out of 100 people (10%) who get a flu shot end up getting the flu in a given year, and 15 out of 100 people (15%) who don't get a flu show end up getting the flu in a given year, then we can divide .10 by .15 to get the relative risk of 0.67. This means that people who get the flu shot have 0.67 times the risk of getting the flu compared to those whoe don't get the flu shot. In Hilary's analysis, she calculates the relative risk as a loss percent to help us think of it as a decrease. In the flu example, the loss percent would be (1-0.67)*100 = 33% less likely.
+As Hilary explains in her post, the relative risk is a measure used to compare proportions. In public health we use it to compare the proportion of people who get a disease who were *exposed* to something to the proportion of people who get a disease who were *unexposed* to something. For example, if 10 out of 100 people (10%) who get a flu shot end up getting the flu in a given year, and 15 out of 100 people (15%) who don't get a flu show end up getting the flu in a given year, then we can divide .10 by .15 to get the relative risk of 0.67. This means that people who get the flu shot have 0.67 times the risk of getting the flu compared to those who don't get the flu shot. In Hilary's analysis, she calculates the relative risk as a loss percent to help us think of it as a decrease. In the flu example, the loss percent would be (1-0.67)*100 = 33% less likely.
 
 Here's how we can calculate this in the tidyverse.
 
@@ -142,7 +142,7 @@ Wow, that really changes my perspective. Hilary may have the largest loss percen
 
 # &#127925; And if it looks like this then you're doing it right &#127925;
 
-## The risk differnce
+## The risk difference
 
 In public health we use both the relative risk[^2] and the risk difference. They provide two different perspectives on the same information, and the usefulness of each measure depends on what question you are hoping to answer[^3]. When the question is about the population-level *impact* of a factor on an outcome, then the risk difference is a more useful measure. When the question is about the *strength* of an association, the relative risk is the best option. The question about which baby name was the most poisoned--that is, which name had the *strongest* drop in popularity--is a question about the *strength* of an association.
 
@@ -152,7 +152,7 @@ In more detail, The *risk difference (RD)* is the difference in proportions. It 
 
 ## The risk difference in `babynames`
 
-Would the risk difference say about these poisoned names? I'll calculate the risk differences in the babynames data set. In this analysis, we can think of the year as the "exposure" and the name as the "outcome." We can think calculate the "risk" or probability of being named Monica in any given year compared to the prior year. To make this more interpretable, I also caculated the excess risk, or how many people were named Monica in a year per 10,000 people named compared to the previous year, by multiplying the risk difference by 10,000.
+Would the risk difference say about these poisoned names? I'll calculate the risk differences in the babynames data set. In this analysis, we can think of the year as the "exposure" and the name as the "outcome." We can think calculate the "risk" or probability of being named Monica in any given year compared to the prior year. To make this more interpretable, I also calculated the excess risk, or how many people were named Monica in a year per 10,000 people named compared to the previous year, by multiplying the risk difference by 10,000.
 
 ```{r}
 rds <- top1000 %>%
@@ -196,7 +196,7 @@ And Hillary wins with an excess risk of -7.2 per 10,000 babies in 1993! In 1993,
 ![](https://media.giphy.com/media/IdyHPMy8eqZ68/giphy.gif)
 
 
-P.S. Seriously, watch this [talk]((https://www.ted.com/talks/monica_lewinsky_the_price_of_shame)) or read this [story](https://www.vanityfair.com/news/2018/02/monica-lewinsky-in-the-age-of-metoo) by Monica Lewinsky. It's inspiring and adds a lot to current conversations about harrassment and bullying.
+P.S. Seriously, watch this [talk]((https://www.ted.com/talks/monica_lewinsky_the_price_of_shame)) or read this [story](https://www.vanityfair.com/news/2018/02/monica-lewinsky-in-the-age-of-metoo) by Monica Lewinsky. It's inspiring and adds a lot to current conversations about harassment and bullying.
 
 
 [^1]: I'll admit that I've never actually watched *Friends*, but this is the impression I got random clips!

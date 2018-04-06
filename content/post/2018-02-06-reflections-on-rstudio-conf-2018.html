@@ -1,7 +1,7 @@
 ---
 title: Reflections on rstudio::conf 2018
 author: Monica Gerber
-date: '2018-02-06'
+date: '2018-04-05'
 slug: reflections-on-rstudio-conf-2018
 categories:
   - conferences
@@ -12,45 +12,58 @@ draft: true
 
 
 
-<p>I have a confession. The first time I used R, when I was a Freshman at Reed College and taking Math 141, I <em>hated</em> it. At the time, R was something that intimidated me and seemed to add more work to my schedule. Oh, how have things changed! Years later I started using R again</p>
-<p>What makes a successful conference experience? Coming away from the rstudio::conf 2018 with a feeling of excitement and motivation to get started on projects and to conribute to the R community is a good sign of success. Here are my reflections from the conference.</p>
-<div id="contribute-to-the-r-communityits-what-makes-it-great" class="section level2">
-<h2>1. Contribute to the R community–it’s what makes it great!</h2>
-<p>Is there something that has frustrated you and that you think could be better? Find a way to work on a solution. It doesn’t have to be elegant or permanent solution, but taking a first try will get the conversation started.</p>
-<p>In sessions and at the fireside chat, R users talked about their frustrations with categorical analysis. Some R users have started working on this problem, such as Andrew Bray and other authors of the <code>infer</code> package. The purpose of <code>infer</code> package is to make the syntax of tests like the Chi-square test “expressive statistical grammar that coheres with the <code>tidyverse</code> design framework.”</p>
-<p>Hadley Wickham also encouraged us to begin thinking about what a “grammar of tables” would look like, and how this could grow from the “grammar of graphics.” As an epidemiologist and biostatistician and epidemiologist, this idea is exciting! Epidemiology, or the study of the distribution and determinants of disease in human populations, has its roots in using tables to display counts and make inference about <a href="LINK">the causes of mortality</a>. Now, some have argued that Epidemiology has <a href="LINK">strayed from its roots</a> and Epidemiologists should focus more on the display of data. How would a grammar of tables inform this?</p>
-<p>As a Biostatistician/Epidemiologist</p>
-<p>Some talks:</p>
+<p>It’s been a couple of months since <a href="https://www.rstudio.com/conference/">rstudio::conf 2018</a> and I’m still mulling over what I learned in 2 days in San Diego. I grew up in the sunshine of San Diego, so it was good to be back and also feel inspired by the amazing energy of the R community. Here’s a reflection on what the conference was like, what ideas I’ve been running with, and how what I learned will change what I do over the course of the next year.</p>
+<div id="i-can-contribute-no-matter-how-small" class="section level2">
+<h2>1. I can contribute, no matter how small</h2>
+<p>My biggest take-away from the conference is that the reason why R is awesome is that anyone can contribute to the community, and many leaders in the R community care about the diversity of the community. This was reflected in the many talks aimed at helping people contribute to R packages, teach R, and publicize their work.</p>
+<p>If there is something that frustrates you about a certain task or package in R, you don’t have to sit around and wish for somebody at the corporate headquarters to make it better, you can find a way to immediately contribute to a solution. It doesn’t have to be a elegant or permanent solution, but taking a first try at solving the problem will get others interested and start the conversation. There are many tools from <a href="https://bookdown.org/yihui/blogdown/">blogdown</a> to the <a href="https://community.rstudio.com/">RStudio Community</a> to the <a href="http://usethis.r-lib.org/">usethis</a> package to make getting your ideas out there easier.</p>
+<p>One of my favorite examples of this was Andrew Bray’s talk on the <a href="https://infer.netlify.com/">infer package</a>. One of people’s complaints about R is that there is no standard way of setting up a statistical test in R. The goal of the infer package is to perform statistical inference in a way that is intuitive and logically consistent with the tidyverse. From the talk, it sounds like the infer developers would be happy to hear from prospective contributors to the package.</p>
+<p>Talks to watch:</p>
 <ul>
-<li>infer talk</li>
+<li><a href="https://www.rstudio.com/resources/videos/contributing-to-tidyverse-packages/">Contributing to tidyverse packages</a> by Mara Averick</li>
+<li><a href="https://www.rstudio.com/resources/videos/fireside-chat-with-rstudio-tidyverse-discussion/">Fireside chat with Rstudio</a></li>
+<li><a href="https://www.rstudio.com/resources/videos/you-can-make-a-package-in-20-minutes/">You can make a package in 20 minutes</a> by Jim Hester</li>
+<li><a href="https://www.rstudio.com/resources/videos/infer-a-package-for-tidy-statistical-inference">infer: a package for tidy statistical inference</a> by Andrew Bray</li>
 </ul>
-<pre class="r"><code>library(infer)
-library(tidyverse)</code></pre>
-<pre><code>## ── Attaching packages ──────────────────────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
-<pre><code>## ✔ ggplot2 2.2.1     ✔ purrr   0.2.4
-## ✔ tibble  1.4.1     ✔ dplyr   0.7.4
-## ✔ tidyr   0.7.2     ✔ stringr 1.2.0
-## ✔ readr   1.1.1     ✔ forcats 0.2.0</code></pre>
-<pre><code>## ── Conflicts ─────────────────────────────────────────────────────────── tidyverse_conflicts() ──
-## ✖ dplyr::filter() masks stats::filter()
-## ✖ dplyr::lag()    masks stats::lag()</code></pre>
-<pre class="r"><code>mtcars %&gt;%
-  specify(response = mpg) %&gt;%
-  hypothesize(null = &quot;point&quot;, mu = 15) %&gt;%
-  generate(reps = 100, type = &quot;bootstrap&quot;) %&gt;%
-  calculate(stat = &quot;mean&quot;)</code></pre>
-<pre><code>## # A tibble: 100 x 2
-##    replicate  stat
-##        &lt;int&gt; &lt;dbl&gt;
-##  1         1  16.5
-##  2         2  16.3
-##  3         3  15.4
-##  4         4  14.9
-##  5         5  14.8
-##  6         6  16.1
-##  7         7  12.7
-##  8         8  16.1
-##  9         9  15.0
-## 10        10  15.2
-## # ... with 90 more rows</code></pre>
+</div>
+<div id="r-makes-my-job-a-whole-lot-more-fun" class="section level2">
+<h2>2. R makes my job a whole lot more fun</h2>
+<p>When I first started learning R when I was in grad school, another student sent me <a href="https://www.facebook.com/photo.php?fbid=10153987792145791&amp;set=a.10150155755935791.338654.617055790&amp;type=3&amp;theater">this comic</a> with the message “hope it’s going well for you.” Apparently this comic was originally about a video game, but people seem to think it accurately describes learning R as well. At the the time I didn’t know anyone who was using R and I abandoned learning it in favor of the program used in my biostatistics department. Later, when in my first job post-grad school, I dove back into R as a way to save myself from some of the frustrations I had working in that role.</p>
+<p>At Rstudio::conf this was a theme that seemed to resonate with a lot of people: R was a way to make their jobs more enlivening and joyful and a way to innovate in their fields. Sure, the learning curve might be a bit steep, but arguably with the tidyverse packages, this is less of a concern. Students can go from install to plotting in ggplot2 in no time. And in the biostatistics of epidemiology field, R can help us think more rigorously about the methods we’re using. For me, the biggest plus of using R is that I’m constantly learning something new and improving my workflow, and that’s what makes me happy.</p>
+<p>Talks to watch:</p>
+<ul>
+<li><a href="https://www.rstudio.com/resources/videos/five-packages-in-five-weeks-from-boredom-to-contribution-via-blogging/">Five packages in five weeks–from boredom to contribution via blogging</a> by Giora Simchoni, author of the <a href="http://giorasimchoni.com/">Sex, Drugs and Data</a> blog</li>
+<li><a href="https://www.rstudio.com/resources/videos/a-sas-to-r-success-story/">A SAS-to-R success story</a> by Elizabeth J. Atkinson</li>
+<li><a href="https://www.rstudio.com/resources/videos/accelerating-cancer-research-with-r/">Accelerating cancer research with R</a> by Sandra Griffith</li>
+</ul>
+</div>
+<div id="im-a-biostatistician-but-i-can-learn-a-lot-from-other-fields" class="section level2">
+<h2>3. I’m a biostatistician, but I can learn a lot from other fields</h2>
+<p>Rstudio::conf was the first non-academic conference that I went to, and the plus of going to the conference was that there were data scientists from many different backgrounds and industries to learn from. Sometimes, when I talk to someone from someone from, say, a political science background, I realize that they have a different ‘language’ for talking about methods. At first, this can be frustrating, but then I realized that approaching something from a different mindset can lead me to a solution I wouldn’t have found otherwise.</p>
+<p>The conference was a jumping off point for me to learn about how others are using R and structuring their workflows. There are many R users blogging about how they’re using R for fun or at work. Setting up an RSS feed for all of these blogs provides endless inspiration for both my work and fun side projects.</p>
+<p>One example of this is how data scientists can use agile development, a well-established practice in modern software development. As a team of 1, this has drastically changed how I approach my work, and could be the focus of a whole other post (or series of posts). Luckily, Elaine McVey wrote a couple of posts on her <a href="http://www.datawoman.com/">blog</a> about this and spoke about it at the conference.</p>
+<p>Talks to watch:</p>
+<ul>
+<li><a href="https://www.rstudio.com/resources/videos/agile-data-science/">Agile data science</a> by Elaine McVey</li>
+<li><a href="https://www.rstudio.com/resources/videos/differentiating-by-data-science/">Differentiating by data science</a> by Eric Colson</li>
+<li><a href="https://www.rstudio.com/resources/videos/imagine-boston-2030-using-r-shiny-to-keep-ourselves-accountable-and-empower-the-public/">Imagine Boston 2030: Using R-Shiny to keep ourselves accountable and empower the public</a> by Kayla Patel</li>
+</ul>
+</div>
+<div id="im-inspired-to-work-with-my-local-r-user-groups" class="section level2">
+<h2>4. I’m inspired to work with my local R user groups</h2>
+<p>Above I mentioned that I’m a team of 1, and this could make it is easy to get stuck in a certain way of doing things. Since no one else in my office is using R, my colleagues might not appreciate the fact that I finally figured out how <code>facet_grid()</code> can improve my <code>ggplot2</code> creations. Luckily, there was a strong presence of <a href="https://rladies.org/">Rladies</a> at rstudio::conf, which inspired me to do some organizing for my local Boston chapter. Finding these networks is incredibly important to me!</p>
+<p>It also helped me think more about how to reach out to other R users at my institution, many of whom may be ‘siloed’ in their academic departments. Luckily, we have an organizational GitLab account, which is the perfect place to post resources for organization-specific information about R, such as how to use R’s database tools to connect to data resources.</p>
+<p>Here are some communities I’ve found out about recently:</p>
+<ul>
+<li><a href="https://rladies.org/">R-Ladies Global</a> and <a href="https://www.meetup.com/rladies-boston/">R-Ladies Boston</a></li>
+<li><a href="https://ropensci.org/">rOpenSci</a></li>
+<li><a href="http://www.datacarpentry.org/">Data Carpentry</a></li>
+<li><a href="https://www.repidemicsconsortium.org/">The R Epidemics Consortium</a></li>
+</ul>
+</div>
+<div id="i-am-still-catching-up-on-rstudioconf-2018" class="section level2">
+<h2>5. I am still catching up on Rstudio::conf 2018</h2>
+<p>Hadley Wickham told us at the beginning of the conference that they purposely designed it so that we would have a really hard time picking which talks to attend. Luckily, many of the talks are <a href="https://www.rstudio.com/resources/videos/rstudioconf-2018-talks/">posted</a> on the Rstudio website, so I can catch up on the ones I missed!</p>
+<hr />
+<p>Thanks for reading, and see you on the internet!</p>
 </div>

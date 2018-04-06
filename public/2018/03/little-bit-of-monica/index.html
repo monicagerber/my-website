@@ -278,12 +278,12 @@ head(babynames)</code></pre>
 <pre><code>## # A tibble: 6 x 5
 ##    year sex   name          n   prop
 ##   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;     &lt;int&gt;  &lt;dbl&gt;
-## 1  1880 F     Mary       7065 0.0724
-## 2  1880 F     Anna       2604 0.0267
-## 3  1880 F     Emma       2003 0.0205
-## 4  1880 F     Elizabeth  1939 0.0199
-## 5  1880 F     Minnie     1746 0.0179
-## 6  1880 F     Margaret   1578 0.0162</code></pre>
+## 1 1880. F     Mary       7065 0.0724
+## 2 1880. F     Anna       2604 0.0267
+## 3 1880. F     Emma       2003 0.0205
+## 4 1880. F     Elizabeth  1939 0.0199
+## 5 1880. F     Minnie     1746 0.0179
+## 6 1880. F     Margaret   1578 0.0162</code></pre>
 <pre class="r"><code>str(babynames)</code></pre>
 <pre><code>## Classes &#39;tbl_df&#39;, &#39;tbl&#39; and &#39;data.frame&#39;:    1858689 obs. of  5 variables:
 ##  $ year: num  1880 1880 1880 1880 1880 1880 1880 1880 1880 1880 ...
@@ -296,7 +296,7 @@ head(babynames)</code></pre>
 <div id="data-wrangling" class="section level2">
 <h2>Data wrangling</h2>
 <p>First I will limit the data set to the top 1000 names in a year and then calculate the relative risk and percentage loss.</p>
-<p>As Hilary explains in her post, the relative risk is a measure used to compare propotions. In public health we use it to compare the proportion of people who get a disease who were <em>exposed</em> to something to the proportion of people who get a disease who were <em>unexposed</em> to something. For example, if 10 out of 100 people (10%) who get a flu shot end up getting the flu in a given year, and 15 out of 100 people (15%) who don’t get a flu show end up getting the flu in a given year, then we can divide .10 by .15 to get the relative risk of 0.67. This means that people who get the flu shot have 0.67 times the risk of getting the flu compared to those whoe don’t get the flu shot. In Hilary’s analysis, she calculates the relative risk as a loss percent to help us think of it as a decrease. In the flu example, the loss percent would be (1-0.67)*100 = 33% less likely.</p>
+<p>As Hilary explains in her post, the relative risk is a measure used to compare proportions. In public health we use it to compare the proportion of people who get a disease who were <em>exposed</em> to something to the proportion of people who get a disease who were <em>unexposed</em> to something. For example, if 10 out of 100 people (10%) who get a flu shot end up getting the flu in a given year, and 15 out of 100 people (15%) who don’t get a flu show end up getting the flu in a given year, then we can divide .10 by .15 to get the relative risk of 0.67. This means that people who get the flu shot have 0.67 times the risk of getting the flu compared to those who don’t get the flu shot. In Hilary’s analysis, she calculates the relative risk as a loss percent to help us think of it as a decrease. In the flu example, the loss percent would be (1-0.67)*100 = 33% less likely.</p>
 <p>Here’s how we can calculate this in the tidyverse.</p>
 <pre class="r"><code>library(tidyverse)
 
@@ -368,19 +368,19 @@ top1000 %&gt;%
   filter(year != lag(year)+1) %&gt;%
   arrange(name, year, sex)</code></pre>
 <pre><code>## # A tibble: 13,488 x 8
-## # Groups: sex, name [4,169]
+## # Groups:   sex, name [4,169]
 ##     year sex   name       n      prop  rank relrisk loss_pct
 ##    &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;int&gt;     &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt;    &lt;dbl&gt;
-##  1  2015 M     Aarush   211 0.000104    971      NA       NA
-##  2  1882 M     Ab         5 0.0000410   943      NA       NA
-##  3  1885 M     Ab         6 0.0000517   836      NA       NA
-##  4  1887 M     Ab         5 0.0000457   921      NA       NA
-##  5  1890 M     Abb        6 0.0000501   884      NA       NA
-##  6  1891 M     Abbie      5 0.0000458   964      NA       NA
-##  7  1937 F     Abbie     52 0.0000472   964      NA       NA
-##  8  1942 F     Abbie     65 0.0000468   968      NA       NA
-##  9  1957 F     Abbie    120 0.0000572   938      NA       NA
-## 10  1978 F     Abbie    176 0.000107    842      NA       NA
+##  1 2015. M     Aarush   211 0.000104    971      NA       NA
+##  2 1882. M     Ab         5 0.0000410   943      NA       NA
+##  3 1885. M     Ab         6 0.0000517   836      NA       NA
+##  4 1887. M     Ab         5 0.0000457   921      NA       NA
+##  5 1890. M     Abb        6 0.0000501   884      NA       NA
+##  6 1891. M     Abbie      5 0.0000458   964      NA       NA
+##  7 1937. F     Abbie     52 0.0000472   964      NA       NA
+##  8 1942. F     Abbie     65 0.0000468   968      NA       NA
+##  9 1957. F     Abbie    120 0.0000572   938      NA       NA
+## 10 1978. F     Abbie    176 0.000107    842      NA       NA
 ## # ... with 13,478 more rows</code></pre>
 </div>
 <div id="biggest-percent-drops" class="section level2">
@@ -504,16 +504,16 @@ top1000 %&gt;%
 <pre><code>## # A tibble: 134 x 4
 ##    name    year loss_pct     n
 ##    &lt;chr&gt;  &lt;dbl&gt;    &lt;dbl&gt; &lt;int&gt;
-##  1 Monica  1999     34.2  2133
-##  2 Monica  1902     32.0    33
-##  3 Monica  1998     24.7  3228
-##  4 Monica  1914     21.8   156
-##  5 Monica  1899     18.9    30
-##  6 Monica  1888     18.0    13
-##  7 Monica  1919     17.8   179
-##  8 Monica  1918     17.3   223
-##  9 Monica  1936     17.1   273
-## 10 Monica  2013     16.8   595
+##  1 Monica 1999.     34.2  2133
+##  2 Monica 1902.     32.0    33
+##  3 Monica 1998.     24.7  3228
+##  4 Monica 1914.     21.8   156
+##  5 Monica 1899.     18.9    30
+##  6 Monica 1888.     18.0    13
+##  7 Monica 1919.     17.8   179
+##  8 Monica 1918.     17.3   223
+##  9 Monica 1936.     17.1   273
+## 10 Monica 2013.     16.8   595
 ## # ... with 124 more rows</code></pre>
 <p>Only a 34% loss for Monica in 1999 compared to 70% for Hilary in 1993 and 78% for Farrah in 1978.</p>
 </div>
@@ -534,15 +534,15 @@ top1000 %&gt;%
 </div>
 <div id="and-if-it-looks-like-this-then-youre-doing-it-right" class="section level1">
 <h1>🎵 And if it looks like this then you’re doing it right 🎵</h1>
-<div id="the-risk-differnce" class="section level2">
-<h2>The risk differnce</h2>
+<div id="the-risk-difference" class="section level2">
+<h2>The risk difference</h2>
 <p>In public health we use both the relative risk<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a> and the risk difference. They provide two different perspectives on the same information, and the usefulness of each measure depends on what question you are hoping to answer<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a>. When the question is about the population-level <em>impact</em> of a factor on an outcome, then the risk difference is a more useful measure. When the question is about the <em>strength</em> of an association, the relative risk is the best option. The question about which baby name was the most poisoned–that is, which name had the <em>strongest</em> drop in popularity–is a question about the <em>strength</em> of an association.</p>
 <p>However, when I looked at the plot above, a new question came to mind: did the drop in the baby name Monica have a greater impact in terms of the overall number of babies being named in the 90s?</p>
 <p>In more detail, The <em>risk difference (RD)</em> is the difference in proportions. It tells us what the <em>excess risk</em> of disease is among those who have been exposed to something vs. those who have not been exposed. In a study on alcohol use and breast cancer<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a>, a 40-year-old woman has an absolute risk of 1.45 of developing breast cancer in the next 10 years. If she is a light drinker, this risk becomes 1.51 percent. The risk ratio is 1.51/1.45 = 1.04, or a 4% increase in risk, which seems like a non-negligible amount. However, the risk difference is 1.51-1.45 = 0.06, or an excess risk of .06 per 100. That’s 6 people for every 10,000 light drinkers, which is a pretty low population impact. When you put it in absolute terms, the RD brings a different perspective to certain types of risk.</p>
 </div>
 <div id="the-risk-difference-in-babynames" class="section level2">
 <h2>The risk difference in <code>babynames</code></h2>
-<p>Would the risk difference say about these poisoned names? I’ll calculate the risk differences in the babynames data set. In this analysis, we can think of the year as the “exposure” and the name as the “outcome.” We can think calculate the “risk” or probability of being named Monica in any given year compared to the prior year. To make this more interpretable, I also caculated the excess risk, or how many people were named Monica in a year per 10,000 people named compared to the previous year, by multiplying the risk difference by 10,000.</p>
+<p>Would the risk difference say about these poisoned names? I’ll calculate the risk differences in the babynames data set. In this analysis, we can think of the year as the “exposure” and the name as the “outcome.” We can think calculate the “risk” or probability of being named Monica in any given year compared to the prior year. To make this more interpretable, I also calculated the excess risk, or how many people were named Monica in a year per 10,000 people named compared to the previous year, by multiplying the risk difference by 10,000.</p>
 <pre class="r"><code>rds &lt;- top1000 %&gt;%
   group_by(sex, name) %&gt;%
   arrange(year) %&gt;%
@@ -800,7 +800,7 @@ rds %&gt;%
 <img src="https://media.giphy.com/media/IdyHPMy8eqZ68/giphy.gif" />
 
 </div>
-<p>P.S. Seriously, watch this <a href="(https://www.ted.com/talks/monica_lewinsky_the_price_of_shame)">talk</a> or read this <a href="https://www.vanityfair.com/news/2018/02/monica-lewinsky-in-the-age-of-metoo">story</a> by Monica Lewinsky. It’s inspiring and adds a lot to current conversations about harrassment and bullying.</p>
+<p>P.S. Seriously, watch this <a href="(https://www.ted.com/talks/monica_lewinsky_the_price_of_shame)">talk</a> or read this <a href="https://www.vanityfair.com/news/2018/02/monica-lewinsky-in-the-age-of-metoo">story</a> by Monica Lewinsky. It’s inspiring and adds a lot to current conversations about harassment and bullying.</p>
 </div>
 </div>
 <div class="footnotes">
@@ -845,7 +845,7 @@ rds %&gt;%
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2018/02/reflections-on-rstudio-conf-2018/" data-tooltip="Reflections on rstudio::conf 2018">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2018/01/hello-world/" data-tooltip="Hello, world!">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -925,7 +925,7 @@ rds %&gt;%
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2018/02/reflections-on-rstudio-conf-2018/" data-tooltip="Reflections on rstudio::conf 2018">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2018/01/hello-world/" data-tooltip="Hello, world!">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -1046,6 +1046,23 @@ rds %&gt;%
           <div class="media">
             
             <div class="media-body">
+              <a class="link-unstyled" href="/2018/04/reflections-on-rstudio-conf-2018/">
+                <h3 class="media-heading">Reflections on rstudio::conf 2018</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Apr 4, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">It’s been a couple of months since rstudio::conf 2018 and I’m still mulling over what I learned in 2 days in San Diego. I grew up in the sunshine of San Diego, so it was good to be back and also feel inspired by the amazing energy of the R community. Here’s a reflection on what the conference was like, what ideas I’ve been running with, and how what I learned will change what I do over the course of the next year.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
               <a class="link-unstyled" href="/2018/03/scraping-the-mmwr-with-rvest/">
                 <h3 class="media-heading">Scraping the MMWR with rvest</h3>
               </a>
@@ -1054,8 +1071,8 @@ rds %&gt;%
                   Mar 3, 2018
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather">rvest package  rvest in action First, we need to create a html document from the URL of the page we want using read_html().
-library(rvest) cdc_site &lt;- read_html(&quot;http://www.cdc.gov/mmwr/volumes/65/wr/mm6545a2.htm?s_cid=mm6545a2_w&quot;) After we have the html document, we need to select part of the document using CSS selectors. I read up on selectorgadget (see rvest, /Library/Frameworks/R.framework/Versions/3.4/Resources/library/rvest, selectorgadget, selectorgadget.Rmd, Selectorgadget, selectorgadget.R, selectorgadget.html) to help me figure out which selector to use. However, for this task, I found it easier to just extract the element we want, which is the table.</div>
+              <div class="media-content hide-xs font-merryweather">rvest in action First, we need to create a html document from the URL of the page we want using read_html().
+library(rvest) cdc_site &lt;- read_html(&quot;http://www.cdc.gov/mmwr/volumes/65/wr/mm6545a2.htm?s_cid=mm6545a2_w&quot;) After we have the html document, we need to select part of the document using CSS selectors. I read up on selectorgadget (see rvest, /Library/Frameworks/R.framework/Versions/3.4/Resources/library/rvest, selectorgadget, selectorgadget.Rmd, Selectorgadget, selectorgadget.R, selectorgadget.html) to help me figure out which selector to use. However, for this task, I found it easier to just extract the type of element we want, which is the table.</div>
             </div>
             <div style="clear:both;"></div>
             <hr>
@@ -1074,24 +1091,6 @@ library(rvest) cdc_site &lt;- read_html(&quot;http://www.cdc.gov/mmwr/volumes/65
               </span>
               <div class="media-content hide-xs font-merryweather">One analysis in the R community that caught my attention is Hilary Parker’s analysis of the most poisoned baby name in US history. I was surprised that my own name didn’t show up in the analysis. If Hilary had a huge loss in 1993, what happened to Monica in 1999?
 For a period when I was a kid the name ‘Monica’ is what made the adults turn down the NPR broadcast.</div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="/2018/02/reflections-on-rstudio-conf-2018/">
-                <h3 class="media-heading">Reflections on rstudio::conf 2018</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Feb 2, 2018
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather">I have a confession. The first time I used R, when I was a Freshman at Reed College and taking Math 141, I hated it. At the time, R was something that intimidated me and seemed to add more work to my schedule. Oh, how have things changed! Years later I started using R again
-What makes a successful conference experience? Coming away from the rstudio::conf 2018 with a feeling of excitement and motivation to get started on projects and to conribute to the R community is a good sign of success.</div>
             </div>
             <div style="clear:both;"></div>
             <hr>
