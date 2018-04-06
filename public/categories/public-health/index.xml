@@ -17,8 +17,8 @@
       <pubDate>Sun, 18 Mar 2018 00:00:00 +0000</pubDate>
       
       <guid>/2018/03/scraping-the-mmwr-with-rvest/</guid>
-      <description>rvest package  rvest in action First, we need to create a html document from the URL of the page we want using read_html().
-library(rvest) cdc_site &amp;lt;- read_html(&amp;quot;http://www.cdc.gov/mmwr/volumes/65/wr/mm6545a2.htm?s_cid=mm6545a2_w&amp;quot;) After we have the html document, we need to select part of the document using CSS selectors. I read up on selectorgadget (see rvest, /Library/Frameworks/R.framework/Versions/3.4/Resources/library/rvest, selectorgadget, selectorgadget.Rmd, Selectorgadget, selectorgadget.R, selectorgadget.html) to help me figure out which selector to use. However, for this task, I found it easier to just extract the element we want, which is the table.</description>
+      <description>rvest in action First, we need to create a html document from the URL of the page we want using read_html().
+library(rvest) cdc_site &amp;lt;- read_html(&amp;quot;http://www.cdc.gov/mmwr/volumes/65/wr/mm6545a2.htm?s_cid=mm6545a2_w&amp;quot;) After we have the html document, we need to select part of the document using CSS selectors. I read up on selectorgadget (see rvest, /Library/Frameworks/R.framework/Versions/3.4/Resources/library/rvest, selectorgadget, selectorgadget.Rmd, Selectorgadget, selectorgadget.R, selectorgadget.html) to help me figure out which selector to use. However, for this task, I found it easier to just extract the type of element we want, which is the table.</description>
     </item>
     
   </channel>

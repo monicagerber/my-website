@@ -7,7 +7,6 @@ categories:
   - conferences
 tags:
   - rstudio::conf
-draft: true
 ---
 
 It's been a couple of months since [rstudio::conf 2018](https://www.rstudio.com/conference/) and I'm still mulling over what I learned in 2 days in San Diego. I grew up in the sunshine of San Diego, so it was good to be back and also feel inspired by the amazing energy of the R community. Here's a reflection on what the conference was like, what ideas I've been running with, and how what I learned will change what I do over the course of the next year.
