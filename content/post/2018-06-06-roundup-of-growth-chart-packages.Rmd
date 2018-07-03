@@ -88,6 +88,10 @@ library(AGD)
 
 # can't figure this one out
 child_data$bmiz <- AGD::y2z(y = child_data$bmi, x = child_data$ageyears, sex = child_data$sex_mf, ref = cdc.bmi)
+
+# note, J.Draper -- no clue whatsoever why, but this seems to work for me:
+df <- child_data[1:nrow(child_data), ]
+df$bmiz <- AGD::y2z(y = df$bmi, x = df$ageyears, sex = df$sex_mf, ref = cdc.bmi)
 ```
 
 # hbgd / growthstandards
