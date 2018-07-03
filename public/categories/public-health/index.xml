@@ -6,10 +6,20 @@
     <description>Recent content in Public Health on Monica W. Gerber</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 18 Mar 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 25 Apr 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/categories/public-health/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Improving biostatistics workflows with purr</title>
+      <link>/2018/04/improving-biostatistics-workflows-with-purr/</link>
+      <pubDate>Wed, 25 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/04/improving-biostatistics-workflows-with-purr/</guid>
+      <description>Some datasets
+ Data is plural https://tinyletter.com/data-is-plural CDC ? https://www.cdc.gov/  </description>
+    </item>
     
     <item>
       <title>Scraping the MMWR with rvest</title>

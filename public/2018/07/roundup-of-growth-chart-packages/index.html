@@ -249,6 +249,7 @@ During the process of brainstorming and working on this project, the team1 I was
             <div class="main-content-wrap">
               <p>At rOpenSci’s annual <a href="http://unconf18.ropensci.org/">unconf</a>, I <a href="https://github.com/ropensci/unconf18/issues/49">suggested</a> a project to work on functions that convert physical growth measurements into z-scores and percentiles. For example, researchers in the United States studying childhood obesity often calculate the BMI z-score or percentage of the 95th percentile of BMI from nationally <a href="https://www.cdc.gov/growthcharts/cdc_charts.htm">representative survey data</a>.</p>
 <p>During the process of brainstorming and working on this project, the team<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> I was working with found out some related R packages that do this. To help us move forward with the project and identify next steps, I round up these packages below.<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a> If I’m missing something, please comment so I can add it to this post!</p>
+<p>Below is an overview of 4 packages: AGD, growthstandards/hgbd, zscorer, and childsds.</p>
 <div id="anthropometric-data" class="section level1">
 <h1>Anthropometric data</h1>
 <p>The <a href="https://www.cdc.gov/nchs/nhanes/index.htm">National Health and Nutrition Examination Survey</a> (NHANES) has data on height, weight, blood pressure, and other measurements for adolescents from 0 to 239 months that I will use to explore these packages. I’m converting the original variables names to names that are easier to use. The data is in an <a href="https://www.loc.gov/preservation/digital/formats/fdd/fdd000464.shtml">.xpt</a> file, which I’ll read in using the <code>haven</code> package.</p>
@@ -291,8 +292,8 @@ df &lt;- demo_need %&gt;%
 # xpt file had column labels, remove column labels 
 child_df &lt;- df[1:nrow(df), ]</code></pre>
 </div>
-<div id="agd-package" class="section level1">
-<h1>AGD package</h1>
+<div id="agd" class="section level1">
+<h1>AGD</h1>
 <p>The Analysis of Growth Data (AGD) package is developed by Stef van Buuren. More info <a href="https://stefvanbuuren.github.io/AGD/">here</a>.</p>
 <blockquote>
 <p>Tools for the analysis of growth data: to extract an LMS table from a gamlss object, to calculate the standard deviation scores and its inverse, and to superpose two wormplots from different models. The package contains a some varieties of reference tables, especially for The Netherlands.</p>
@@ -501,8 +502,8 @@ zscorer_df %&gt;%
 ##  ▁▂▆▇▂▁▁▁
 ##  ▁▁▆▇▂▁▁▁</code></pre>
 </div>
-<div id="childsds-package" class="section level1">
-<h1>childsds package</h1>
+<div id="childsds" class="section level1">
+<h1>childsds</h1>
 <p>The <a href="https://github.com/mvogel78/childsds">childsds</a> package by Mandy Vogel has child reference data from many other countries (WHO, UK, Germany, Italy, China, and more).</p>
 <pre class="r"><code>install.packages(&quot;chilsds&quot;)</code></pre>
 <p>You can obtain information about the reference data by doing:</p>
@@ -567,7 +568,7 @@ zscorer_df %&gt;%
 ## [1] &quot;wfl - weight for length&quot;
 ## [1] &quot;wfl and wfls - age must refer to the length variable; the function gives the sds for a given weight conditional on height&quot;
 ## [1] &quot;use one of the following keys: bmi - height0_3 - height2_20 - weight - hc - wfl - wfl2 - weight2_20&quot;</code></pre>
-<p>We can calculate the BMI z-score and percentile given the reference charts:</p>
+<p>We can calculate the BMI z-score and percentile given the reference charts using the <code>sds()</code> function:</p>
 <pre class="r"><code>library(childsds)
 
 childsds_df &lt;- child_df %&gt;%

@@ -43,6 +43,8 @@ At rOpenSci's annual [unconf](http://unconf18.ropensci.org/), I [suggested](http
 
 During the process of brainstorming and working on this project, the team[^1] I was working with found out some related R packages that do this. To help us move forward with the project and identify next steps, I round up these packages below.[^2] If I'm missing something, please comment so I can add it to this post!
 
+Below is an overview of 4 packages: AGD, growthstandards/hgbd, zscorer, and childsds. 
+
 # Anthropometric data
 
 The [National Health and Nutrition Examination Survey](https://www.cdc.gov/nchs/nhanes/index.htm) (NHANES) has data on height, weight, blood pressure, and other measurements for adolescents from 0 to 239 months that I will use to explore these packages. I'm converting the original variables names to names that are easier to use. The data is in an [.xpt](https://www.loc.gov/preservation/digital/formats/fdd/fdd000464.shtml) file, which I'll read in using the `haven` package.
@@ -80,7 +82,7 @@ df <- demo_need %>%
 child_df <- df[1:nrow(df), ]
 ```
 
-# AGD package
+# AGD
 
 The Analysis of Growth Data (AGD) package is developed by Stef van Buuren. More info [here](https://stefvanbuuren.github.io/AGD/). 
 
@@ -265,7 +267,7 @@ zscorer_df %>%
   skimr::skim()
 ```
 
-# childsds package
+# childsds
 
 The [childsds](https://github.com/mvogel78/childsds) package by Mandy Vogel has child reference data from many other countries (WHO, UK, Germany, Italy, China, and more). 
 
@@ -278,7 +280,7 @@ You can obtain information about the reference data by doing:
 childsds::cdc.ref
 ```
 
-We can calculate the BMI z-score and percentile given the reference charts:
+We can calculate the BMI z-score and percentile given the reference charts using the `sds()` function:
 
 ```{r}
 library(childsds)
