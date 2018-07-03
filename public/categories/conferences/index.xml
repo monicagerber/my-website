@@ -6,10 +6,20 @@
     <description>Recent content in Conferences on Monica W. Gerber</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 05 Apr 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 01 Jul 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/categories/conferences/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Roundup of growth chart packages</title>
+      <link>/2018/07/roundup-of-growth-chart-packages/</link>
+      <pubDate>Sun, 01 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/07/roundup-of-growth-chart-packages/</guid>
+      <description>At rOpenSci’s annual unconf, I suggested a project to work on functions that convert physical growth measurements into z-scores and percentiles. For example, researchers in the United States studying childhood obesity often calculate the BMI z-score or percentage of the 95th percentile of BMI from nationally representative survey data.
+During the process of brainstorming and working on this project, the team1 I was working with found out some related R packages that do this.</description>
+    </item>
     
     <item>
       <title>Reflections on rstudio::conf 2018</title>

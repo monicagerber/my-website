@@ -2,6 +2,17 @@
 title: Roundup of growth chart packages
 author: Monica Gerber
 date: '2018-07-01'
+categories:
+  - conferences
+  - roundup
+  - ropensci
+tags:
+  - agd
+  - bmi
+  - childsds
+  - growthchart
+  - growthstandards
+  - zscorer
 slug: roundup-of-growth-chart-packages
 ---
 
@@ -30,11 +41,11 @@ r_ladies_theme <- function(){
 
 At rOpenSci's annual [unconf](http://unconf18.ropensci.org/), I [suggested](https://github.com/ropensci/unconf18/issues/49) a project to work on functions that convert physical growth measurements into z-scores and percentiles. For example, researchers in the United States studying childhood obesity often calculate the BMI z-score or percentage of the 95th percentile of BMI from nationally [representative survey data](https://www.cdc.gov/growthcharts/cdc_charts.htm).
 
-During the process of brainstorming and working on this project, the team I was working with found out some related R packages that do this. To help us move forward with the project and identify next steps, I round up these packages below. If I'm missing something, please comment so I can add it to this post!
+During the process of brainstorming and working on this project, the team[^1] I was working with found out some related R packages that do this. To help us move forward with the project and identify next steps, I round up these packages below.[^2] If I'm missing something, please comment so I can add it to this post!
 
 # Anthropometric measurements
 
-The [National Health and Nutrition Examination Survey](https://www.cdc.gov/nchs/nhanes/index.htm) (NHANES) has data on height, weight, blood pressure, and other measurements for adolescents from 0 to 239 months that I will use to explore these packages. I'm conveting the original variables names to names that are easier to use. The data is in an [.xpt](https://www.loc.gov/preservation/digital/formats/fdd/fdd000464.shtml) file, which I'll read in using the `haven` package.
+The [National Health and Nutrition Examination Survey](https://www.cdc.gov/nchs/nhanes/index.htm) (NHANES) has data on height, weight, blood pressure, and other measurements for adolescents from 0 to 239 months that I will use to explore these packages. I'm converting the original variables names to names that are easier to use. The data is in an [.xpt](https://www.loc.gov/preservation/digital/formats/fdd/fdd000464.shtml) file, which I'll read in using the `haven` package.
 
 ```{r warning=FALSE}
 library(tidyverse)
@@ -56,16 +67,17 @@ exam_need <- exam_data %>%
          length_cm = BMXRECUM, 
          weight_kg = BMXWT)
 
-child_data <- demo_need %>%
+df <- demo_need %>%
   left_join(exam_need, by = "id") %>%
   filter(!is.na(agemos)) %>%
   mutate(sex_mf = if_else(sex_num == 1, "M", "F"),
          sex = if_else(sex_num == 1, "Male", "Female"),
          # recumbent length is used if under 2 years old
          height_length_cm = if_else(agemos < 24, length_cm, height_cm),
-         ageyears = agemos/12) %>%
-  glimpse()
+         ageyears = agemos/12)
 
+# xpt file had column labels, remove column labels 
+child_df <- df[1:nrow(df), ]
 ```
 
 # AGD package
@@ -86,15 +98,49 @@ To calculate the age- and sex-adjusted BMI z-scores for the children in the NHAN
 ```{r}
 library(AGD)
 
-# can't figure this one out
-child_data$bmiz <- AGD::y2z(y = child_data$bmi, x = child_data$ageyears, sex = child_data$sex_mf, ref = cdc.bmi)
+bmi_levels <- c("Underweight", "Healthy weight", "Overweight", 
+                "Obesity", "Severe obesity")
 
-# note, J.Draper -- no clue whatsoever why, but this seems to work for me:
-df <- child_data[1:nrow(child_data), ]
-df$bmiz <- AGD::y2z(y = df$bmi, x = df$ageyears, sex = df$sex_mf, ref = cdc.bmi)
+agd_df <- child_df %>%
+  # the CDC growth charts are typically used for children 2 years or older
+  filter(agemos >= 24) %>%
+  mutate(bmiz =  AGD::y2z(y = bmi, x = ageyears, sex = sex_mf, ref = cdc.bmi),
+         bmipct = pnorm(bmiz),
+         # what is the 95th percentile for the child's age and sex?,
+         z = qnorm(.95),
+         p95 = AGD::z2y(z = z, x= ageyears, sex = sex_mf, ref = cdc.bmi),
+         # percentage of the 95th percentile
+         bmipct95 = bmi/p95,
+         # bmi category
+         bmicat = factor(case_when(bmipct < .05 ~ "Underweight",
+                                   bmipct < .85 ~ "Healthy weight",
+                                   bmipct < .95 ~ "Overweight",
+                                   bmipct95 < 1.2 ~ "Obesity",
+                                   bmipct95 >= 1.2 ~ "Severe obesity"),
+                         levels = bmi_levels))
+
+agd_df %>%
+  select(agemos, bmi, bmiz, bmipct, bmipct95) %>%
+  skimr::skim()
 ```
 
-# hbgd / growthstandards
+A plot of the category values:
+
+```{r}
+agd_df %>%
+  filter(!is.na(bmicat)) %>%
+  ggplot() +
+  stat_count(mapping = aes(x = bmicat, y=..prop.., group=1)) +
+  r_ladies_theme() +
+  labs(title = "BMI categories for U.S. children 2 years and older",
+       subtitle = "NHANES 2015-2016; Calculated using the AGD package",
+       y = "Proportion",
+       x = "BMI Category")
+```
+
+*Note: I haven't taken the complex survey design into account here, so these proportions are not an accurate estimate of the prevalence in the U.S. See [this report](https://www.cdc.gov/nchs/data/databriefs/db288.pdf) for those estimates.*
+
+# growthstandards / hgbd
 
 The [growthstandards](https://github.com/hbgdki/growthstandards) package, developed by Ryan Hafen, is an offshoot from a larger package, hbgd, and some docs for the growth standards calculations can be found [here](http://hbgdki.github.io/hbgd/#who_growth_standard). It provides calculations for:
 
@@ -102,19 +148,19 @@ The [growthstandards](https://github.com/hbgdki/growthstandards) package, develo
 * INTERGROWTH fetal head circumference, biparietel diameter, occipito-frontal diameter, abdominal circumference, femur length
 * INTERGROWTH newborn (including very preterm) weight, length, and head circumference
 
-The package has some very useful funcitons for converting units such as:
+The package has some very useful functions for converting units such as:
 
-* `months2days()` for convertering age in months to age in days, and
+* `months2days()` for converting age in months to age in days, and
 * `lb2kg()` for pounds to kilograms.
 
 ```{r eval=FALSE}
 devtools::install_github("HBGDki/growthstandards")
 ```
 
-The Center for Disease Control (CDC) and American Acadamey of Pediatrics (AAP) [recommend](https://www.cdc.gov/nccdphp/dnpao/growthcharts/who/recommendations/index.htm) using the WHO growth standards for children in the United States under 2 years old. To calculate the age- and sex-adjusted BMI z-scores for the children in the NHANES dataset using the WHO reference charts we can do the following:
+The Center for Disease Control (CDC) and American Academy of Pediatrics (AAP) [recommend](https://www.cdc.gov/nccdphp/dnpao/growthcharts/who/recommendations/index.htm) using the WHO growth standards for children in the United States under 2 years old. To calculate the age- and sex-adjusted BMI z-scores for the children in the NHANES dataset using the WHO reference charts we can do the following:
 
 ```{r}
-child_bmi <- child_data %>%
+child_who <- child_df %>%
   filter(agemos < 24) %>%
   mutate(
     bmi = weight_kg/((length_cm/100)^2) ,
@@ -140,7 +186,7 @@ child_bmi <- child_data %>%
     obesity = if_else(bmipct >= 95, 1, 0))
 
 
-child_bmi %>%
+child_who %>%
   select(bmi, bmiz, bmipct, bmipct95, obesity) %>%
   skimr::skim()
 ```
@@ -149,21 +195,20 @@ Density plots of our new values:
 
 ```{r}
 vars <- c("bmi", "bmiz", "bmipct", "bmipct95")
+sub <- "Using WHO growth charts from growthstandards package"
 
-density_fun <- function(xvar) {
-  myplot <- ggplot(child_bmi, aes_string(x = xvar)) +
+density_fun <- function(xvar, df, sub) {
+  myplot <- ggplot(df, aes_string(x = xvar)) +
     geom_density() +
-    labs(title = paste0("Density plot of ", xvar, " for ages < 2 years"),
-         subtitle = "Using WHO growth charts from growthstandards package") +
+    labs(title = paste0("Density plot of ", xvar),
+         subtitle = sub) +
     r_ladies_theme() 
   
   plot(myplot)
 }
 
-purrr::walk(.x = vars, .f = density_fun)
+purrr::walk(.x = vars, .f = density_fun, df = child_who, sub = sub)
 ```
-
-In these plots we can see the effect of the childhood obesity epidemic in the United States. The peak of the density plot for the BMI z-score is not centered on 0 and slightly skewed to the right. 
 
 
 # zscorer
@@ -186,7 +231,7 @@ The authors note that:
 Because this function is meant for a specific age and height range, I'll filter the data first.
 
 ```{r}
-zscorer_data <- child_data %>%
+zscorer_df <- child_df %>%
   filter(agemos < 60) %>%
   filter(height_length_cm < 120,
          height_length_cm > 45) %>%
@@ -194,61 +239,94 @@ zscorer_data <- child_data %>%
   drop_na() %>%
   as.data.frame() # cannot be type tbl_df
 
+library(zscorer)
+
 # height for age z-score
-zscorer_data$haz <- getCohortWGS(data = zscorer_data,
+zscorer_df$haz <- getCohortWGS(data = zscorer_df,
                                  sexObserved = "sex_num",
                                  firstPart = "height_length_cm",
                                  secondPart = "agemos",
                                  index = "hfa")
 # weight for age z-score
-zscorer_data$waz <- getCohortWGS(data = zscorer_data,
+zscorer_df$waz <- getCohortWGS(data = zscorer_df,
                                  sexObserved = "sex_num",
                                  firstPart = "weight_kg",
                                  secondPart = "agemos",
                                  index = "wfa")
 # weight fot height z-score
-zscorer_data$whz <- getCohortWGS(data = zscorer_data,
+zscorer_df$whz <- getCohortWGS(data = zscorer_df,
                                  sexObserved = "sex_num",
                                  firstPart = "weight_kg",
                                  secondPart = "height_length_cm",
                                  index = "wfh")
 
-zscorer_data %>%
+zscorer_df %>%
   select(haz, waz, whz) %>%
   skimr::skim()
 ```
 
 # childsds package
 
-developed by Mandy Vogel
+The [childsds](https://github.com/mvogel78/childsds) package by Mandy Vogel has child reference data from many other countries (WHO, UK, Germany, Italy, China, and more). 
 
-* lots of global references!
+```{r eval=FALSE}
+install.packages("chilsds")
+```
 
+You can obtain information about the reference data by doing:
+```{r}
+childsds::cdc.ref
+```
 
+We can calculate the BMI z-score and percentile given the reference charts:
 
+```{r}
+library(childsds)
 
-# sitar
+childsds_df <- child_df %>%
+  filter(agemos >= 24) %>%
+  mutate(bmiz = sds(bmi,
+                    age = ageyears,
+                    sex = sex, male = "Male", female =  "Female",
+                    ref = cdc.ref,
+                    item = "bmi",
+                    type = "SDS"),
+         bmipct = round(pnorm(bmiz)*100,2),
+         # or use sds function and type = "perc"
+         bmipct2 = sds(bmi,
+                    age = ageyears,
+                    sex = sex, male = "Male", female =  "Female",
+                    ref = cdc.ref,
+                    item = "bmi",
+                    type = "perc")) %>% 
+  glimpse() 
+```
 
-https://cran.r-project.org/web/packages/sitar/vignettes/Fitting_models_with_SITAR.html
-
+Plot the values:
+```{r}
+sub <- "Using CDC growth charts from childsds package"
+vars <- c("bmiz", "bmipct")
+  
+purrr::walk(.x = vars, .f = density_fun, df = childsds_df, sub = sub)
+```
 
 # Other work
 
-* fenton
-https://www.researchgate.net/publication/6506858_Using_the_LMS_method_to_calculate_z-scores_for_the_Fenton_preterm_growth_chart
+There is some other publicly available work in this research area:
 
-* cpeg macros
-https://cpeg-gcep.net/content/who-macro-files-cpeg-revision
+* [SITAR](https://github.com/statist7/sitar): SuperImposition by Translation And Rotation model by Tim Cole and colleagues. The SITAR package provides functions for fitting and plotting growth curve models. More background information can be found [here](SuperImposition by Translation And Rotation).
 
-* shiny apps
-https://apps.cpeg-gcep.net/
+* [Canadian Pediatric Endocrine Group](https://cpeg-gcep.net/content/who-macro-files-cpeg-revision): This group has made available SAS, R, an Stata programs for the WHO growth charts, an R script for [waist circumference z-scores](https://cpeg-gcep.net/content/waist-circumference-and-waist-height-ratio-charts) (NHANES, cycle III), and an R script for the preterm z-scores (Fenton reference). They have also published many [shiny apps](https://cpeg-gcep.net/content/shiny-apps)!
 
 
+***
 
-Part II will have thoughts on what to do next with mchtoolbox.
+Please comment if you have found something that I'm missing. I will write a second post with thoughts on what to do next with our unconf project, mchtoolbox.
 
 
+[^1]: Thanks [Jenny Draper](https://twitter.com/learithe), [Jennifer Thompson](https://twitter.com/jent103), [Kyle Hamilton](https://twitter.com/kylehamilton), and [Charles Gray](https://twitter.com/cantabile) for being on this team!
 
+[^2]: Thanks [Mara](https://maraaverick.rbind.io/2018/06/meta-sods18-a-call-to-curation/) for the encouragement!
 
 
 

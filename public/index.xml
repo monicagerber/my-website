@@ -6,10 +6,48 @@
     <description>Recent content on Monica W. Gerber</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 05 Apr 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 01 Jul 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Roundup of growth chart packages</title>
+      <link>/2018/07/roundup-of-growth-chart-packages/</link>
+      <pubDate>Sun, 01 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/07/roundup-of-growth-chart-packages/</guid>
+      <description>At rOpenSci’s annual unconf, I suggested a project to work on functions that convert physical growth measurements into z-scores and percentiles. For example, researchers in the United States studying childhood obesity often calculate the BMI z-score or percentage of the 95th percentile of BMI from nationally representative survey data.
+During the process of brainstorming and working on this project, the team1 I was working with found out some related R packages that do this.</description>
+    </item>
+    
+    <item>
+      <title>What I’ve learned about using REDCap with R</title>
+      <link>/2018/06/what-i-ve-learned-about-using-redcap-with-r/</link>
+      <pubDate>Tue, 05 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/06/what-i-ve-learned-about-using-redcap-with-r/</guid>
+      <description>When I started at my current job back fresh out of grad school in January 2015, I had only coded in SAS1 and the the lab I joined was storing data in SPSS spreadsheets–1 file for each patient (:scream:). As you can imagine, I needed to figure out something better and fast. Luckily, my institution had REDCap so I started getting us more organized by putting our data in a REDCap database.</description>
+    </item>
+    
+    <item>
+      <title>Visualizing experimental data with ridgeline plots</title>
+      <link>/2018/05/visualizing-outcomes-in-epidemiology-with-joy-plots/</link>
+      <pubDate>Wed, 02 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/05/visualizing-outcomes-in-epidemiology-with-joy-plots/</guid>
+      <description>I’m a bit late to the ridgeline plot craze of 2017, but recently became a fan of using these plots for visualizing body mass index (BMI; a measure used to screen for body fatness) outcomes in clinical research. We often measure BMI at multiple time points during a clinical trial, and physicians want to know how the distribution of BMI is shifting. Ridgeline plots are a perfect way to look at these distributions over time.</description>
+    </item>
+    
+    <item>
+      <title>Improving biostatistics workflows with purr</title>
+      <link>/2018/04/improving-biostatistics-workflows-with-purr/</link>
+      <pubDate>Wed, 25 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/04/improving-biostatistics-workflows-with-purr/</guid>
+      <description>Some datasets
+ Data is plural https://tinyletter.com/data-is-plural CDC ? https://www.cdc.gov/  </description>
+    </item>
     
     <item>
       <title>Reflections on rstudio::conf 2018</title>

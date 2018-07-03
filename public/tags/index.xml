@@ -6,10 +6,19 @@
     <description>Recent content in Tags on Monica W. Gerber</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 04 Mar 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 01 Jul 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Agd</title>
+      <link>/tags/agd/</link>
+      <pubDate>Sun, 01 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/agd/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Babynames</title>
@@ -21,11 +30,65 @@
     </item>
     
     <item>
+      <title>Bmi</title>
+      <link>/tags/bmi/</link>
+      <pubDate>Sun, 01 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/bmi/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Childsds</title>
+      <link>/tags/childsds/</link>
+      <pubDate>Sun, 01 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/childsds/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Growthchart</title>
+      <link>/tags/growthchart/</link>
+      <pubDate>Sun, 01 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/growthchart/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Growthstandards</title>
+      <link>/tags/growthstandards/</link>
+      <pubDate>Sun, 01 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/growthstandards/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Mmwr Rvest</title>
       <link>/tags/mmwr-rvest/</link>
       <pubDate>Sun, 18 Mar 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/mmwr-rvest/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Purrr</title>
+      <link>/tags/purrr/</link>
+      <pubDate>Wed, 25 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/purrr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Redcap</title>
+      <link>/tags/redcap/</link>
+      <pubDate>Tue, 05 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/redcap/</guid>
       <description></description>
     </item>
     
@@ -44,6 +107,15 @@
       <pubDate>Mon, 29 Jan 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/website/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Zscorer</title>
+      <link>/tags/zscorer/</link>
+      <pubDate>Sun, 01 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/zscorer/</guid>
       <description></description>
     </item>
     

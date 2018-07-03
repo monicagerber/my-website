@@ -1,0 +1,1090 @@
+
+
+  
+    
+  
+
+
+  
+
+
+
+
+  
+
+
+  
+
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hugo 0.32 with theme Tranquilpeak 0.4.3-BETA">
+    <title>Roundup of growth chart packages</title>
+    <meta name="author" content="Monica W. Gerber">
+    <meta name="keywords" content="">
+
+    <link rel="icon" href="/favicon.png">
+    
+
+    
+    <meta name="description" content="At rOpenSci’s annual unconf, I suggested a project to work on functions that convert physical growth measurements into z-scores and percentiles. For example, researchers in the United States studying childhood obesity often calculate the BMI z-score or percentage of the 95th percentile of BMI from nationally representative survey data.
+During the process of brainstorming and working on this project, the team1 I was working with found out some related R packages that do this.">
+    <meta property="og:description" content="At rOpenSci’s annual unconf, I suggested a project to work on functions that convert physical growth measurements into z-scores and percentiles. For example, researchers in the United States studying childhood obesity often calculate the BMI z-score or percentage of the 95th percentile of BMI from nationally representative survey data.
+During the process of brainstorming and working on this project, the team1 I was working with found out some related R packages that do this.">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="Roundup of growth chart packages">
+    <meta property="og:url" content="/2018/07/roundup-of-growth-chart-packages/">
+    <meta property="og:site_name" content="Monica W. Gerber">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Monica W. Gerber">
+    <meta name="twitter:description" content="At rOpenSci’s annual unconf, I suggested a project to work on functions that convert physical growth measurements into z-scores and percentiles. For example, researchers in the United States studying childhood obesity often calculate the BMI z-score or percentage of the 95th percentile of BMI from nationally representative survey data.
+During the process of brainstorming and working on this project, the team1 I was working with found out some related R packages that do this.">
+    
+    
+
+    
+    
+
+    
+      <meta property="og:image" content="//www.gravatar.com/avatar/31eb95d94a3d5c0b77d3d585306da579?s=640">
+    
+
+    
+    
+    
+
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
+    
+    
+
+    
+      
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="/">Monica W. Gerber</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="//www.gravatar.com/avatar/31eb95d94a3d5c0b77d3d585306da579?s=90" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="/#about">
+          <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/31eb95d94a3d5c0b77d3d585306da579?s=110" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Monica W. Gerber</h4>
+        
+          <h5 class="sidebar-profile-bio">Hi, I&rsquo;m a Biostatistician // Epidemiologist // Data Scientist. I use data science to understand and improve population health.</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/monicagerber">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://twitter.com/mwgerber">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-twitter-square"></i>
+      
+      <span class="sidebar-button-desc">Twitter</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="4"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      Roundup of growth chart packages
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2018-07-01T00:00:00Z">
+        
+  July 1, 2018
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="/categories/conferences">conferences</a>, 
+    
+      <a class="category-link" href="/categories/roundup">roundup</a>, 
+    
+      <a class="category-link" href="/categories/ropensci">ropensci</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <p>At rOpenSci’s annual <a href="http://unconf18.ropensci.org/">unconf</a>, I <a href="https://github.com/ropensci/unconf18/issues/49">suggested</a> a project to work on functions that convert physical growth measurements into z-scores and percentiles. For example, researchers in the United States studying childhood obesity often calculate the BMI z-score or percentage of the 95th percentile of BMI from nationally <a href="https://www.cdc.gov/growthcharts/cdc_charts.htm">representative survey data</a>.</p>
+<p>During the process of brainstorming and working on this project, the team<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> I was working with found out some related R packages that do this. To help us move forward with the project and identify next steps, I round up these packages below.<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a> If I’m missing something, please comment so I can add it to this post!</p>
+<div id="anthropometric-measurements" class="section level1">
+<h1>Anthropometric measurements</h1>
+<p>The <a href="https://www.cdc.gov/nchs/nhanes/index.htm">National Health and Nutrition Examination Survey</a> (NHANES) has data on height, weight, blood pressure, and other measurements for adolescents from 0 to 239 months that I will use to explore these packages. I’m converting the original variables names to names that are easier to use. The data is in an <a href="https://www.loc.gov/preservation/digital/formats/fdd/fdd000464.shtml">.xpt</a> file, which I’ll read in using the <code>haven</code> package.</p>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>## ── Attaching packages ─────────────────────────── tidyverse 1.2.1 ──</code></pre>
+<pre><code>## ✔ ggplot2 2.2.1     ✔ purrr   0.2.5
+## ✔ tibble  1.4.2     ✔ dplyr   0.7.6
+## ✔ tidyr   0.8.1     ✔ stringr 1.3.1
+## ✔ readr   1.1.1     ✔ forcats 0.3.0</code></pre>
+<pre><code>## ── Conflicts ────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()</code></pre>
+<pre class="r"><code>library(haven)
+
+demo_data &lt;- read_xpt(url(&quot;https://wwwn.cdc.gov/Nchs/Nhanes/2015-2016/DEMO_I.XPT&quot;))
+
+demo_need &lt;- demo_data %&gt;%
+  select(id = SEQN, 
+         agemos = RIDEXAGM, 
+         sex_num = RIAGENDR)
+
+exam_data &lt;- read_xpt(url(&quot;https://wwwn.cdc.gov/Nchs/Nhanes/2015-2016/BMX_I.XPT&quot;))
+
+exam_need &lt;- exam_data %&gt;%
+  select(id = SEQN, 
+         bmi = BMXBMI, 
+         height_cm = BMXHT, 
+         length_cm = BMXRECUM, 
+         weight_kg = BMXWT)
+
+df &lt;- demo_need %&gt;%
+  left_join(exam_need, by = &quot;id&quot;) %&gt;%
+  filter(!is.na(agemos)) %&gt;%
+  mutate(sex_mf = if_else(sex_num == 1, &quot;M&quot;, &quot;F&quot;),
+         sex = if_else(sex_num == 1, &quot;Male&quot;, &quot;Female&quot;),
+         # recumbent length is used if under 2 years old
+         height_length_cm = if_else(agemos &lt; 24, length_cm, height_cm),
+         ageyears = agemos/12)
+
+# xpt file had column labels, remove column labels 
+child_df &lt;- df[1:nrow(df), ]</code></pre>
+</div>
+<div id="agd-package" class="section level1">
+<h1>AGD package</h1>
+<p>The Analysis of Growth Data (AGD) package is developed by Stef van Buuren. More info <a href="https://stefvanbuuren.github.io/AGD/">here</a>.</p>
+<blockquote>
+<p>Tools for the analysis of growth data: to extract an LMS table from a gamlss object, to calculate the standard deviation scores and its inverse, and to superpose two wormplots from different models. The package contains a some varieties of reference tables, especially for The Netherlands.</p>
+</blockquote>
+<p>It has functions for reference tables from the CDC 2000 growth charts, Third Dutch Growth Study (1980), Fourth Dutch Growth Study (1997), and WHO growth charts. The function <code>y2z()</code> converts measurements into standard deviation scores (z-scores) and <code>z2y()</code> does the opposite, convert standard deviation scores into measurements.</p>
+<p>The package is available on CRAN.</p>
+<pre class="r"><code>install.packages(&quot;AGD&quot;)</code></pre>
+<p>To calculate the age- and sex-adjusted BMI z-scores for the children in the NHANES dataset, we can do the following:</p>
+<pre class="r"><code>library(AGD)
+
+bmi_levels &lt;- c(&quot;Underweight&quot;, &quot;Healthy weight&quot;, &quot;Overweight&quot;, 
+                &quot;Obesity&quot;, &quot;Severe obesity&quot;)
+
+agd_df &lt;- child_df %&gt;%
+  # the CDC growth charts are typically used for children 2 years or older
+  filter(agemos &gt;= 24) %&gt;%
+  mutate(bmiz =  AGD::y2z(y = bmi, x = ageyears, sex = sex_mf, ref = cdc.bmi),
+         bmipct = pnorm(bmiz),
+         # what is the 95th percentile for the child&#39;s age and sex?,
+         z = qnorm(.95),
+         p95 = AGD::z2y(z = z, x= ageyears, sex = sex_mf, ref = cdc.bmi),
+         # percentage of the 95th percentile
+         bmipct95 = bmi/p95,
+         # bmi category
+         bmicat = factor(case_when(bmipct &lt; .05 ~ &quot;Underweight&quot;,
+                                   bmipct &lt; .85 ~ &quot;Healthy weight&quot;,
+                                   bmipct &lt; .95 ~ &quot;Overweight&quot;,
+                                   bmipct95 &lt; 1.2 ~ &quot;Obesity&quot;,
+                                   bmipct95 &gt;= 1.2 ~ &quot;Severe obesity&quot;),
+                         levels = bmi_levels))
+
+agd_df %&gt;%
+  select(agemos, bmi, bmiz, bmipct, bmipct95) %&gt;%
+  skimr::skim()</code></pre>
+<pre><code>## Skim summary statistics
+##  n obs: 3426 
+##  n variables: 5 
+## 
+## ── Variable type:numeric ───────────────────────────────────────────
+##  variable missing complete    n   mean    sd       p0   p25    p50    p75
+##    agemos       0     3426 3426 121.86 60.89 24       70    118    173   
+##       bmi      86     3340 3426  20.32  5.71 11.5     16.2   18.6   22.8 
+##    bmipct      86     3340 3426   0.66  0.29  2.3e-06  0.44   0.72   0.93
+##  bmipct95      86     3340 3426   0.88  0.18  0.51     0.76   0.85   0.96
+##      bmiz      86     3340 3426   0.59  1.13 -4.58    -0.16   0.58   1.45
+##    p100     hist
+##  239    ▇▇▇▇▆▆▆▅
+##   54.7  ▇▇▃▂▁▁▁▁
+##    1    ▂▂▂▂▂▃▃▇
+##    1.82 ▂▇▇▂▁▁▁▁
+##    4.67 ▁▁▁▅▇▆▁▁</code></pre>
+<p>A plot of the category values:</p>
+<pre class="r"><code>agd_df %&gt;%
+  filter(!is.na(bmicat)) %&gt;%
+  ggplot() +
+  stat_count(mapping = aes(x = bmicat, y=..prop.., group=1)) +
+  r_ladies_theme() +
+  labs(title = &quot;BMI categories for U.S. children 2 years and older&quot;,
+       subtitle = &quot;NHANES 2015-2016; Calculated using the AGD package&quot;,
+       y = &quot;Proportion&quot;,
+       x = &quot;BMI Category&quot;)</code></pre>
+<p><img src="/post/2018-06-06-roundup-of-growth-chart-packages_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><em>Note: I haven’t taken the complex survey design into account here, so these proportions are not an accurate estimate of the prevalence in the U.S. See <a href="https://www.cdc.gov/nchs/data/databriefs/db288.pdf">this report</a> for those estimates.</em></p>
+</div>
+<div id="growthstandards-hgbd" class="section level1">
+<h1>growthstandards / hgbd</h1>
+<p>The <a href="https://github.com/hbgdki/growthstandards">growthstandards</a> package, developed by Ryan Hafen, is an offshoot from a larger package, hbgd, and some docs for the growth standards calculations can be found <a href="http://hbgdki.github.io/hbgd/#who_growth_standard">here</a>. It provides calculations for:</p>
+<ul>
+<li>WHO height, weight, head circumference, muacc, subscalpular skinfold, triceps skinfold</li>
+<li>INTERGROWTH fetal head circumference, biparietel diameter, occipito-frontal diameter, abdominal circumference, femur length</li>
+<li>INTERGROWTH newborn (including very preterm) weight, length, and head circumference</li>
+</ul>
+<p>The package has some very useful functions for converting units such as:</p>
+<ul>
+<li><code>months2days()</code> for converting age in months to age in days, and</li>
+<li><code>lb2kg()</code> for pounds to kilograms.</li>
+</ul>
+<pre class="r"><code>devtools::install_github(&quot;HBGDki/growthstandards&quot;)</code></pre>
+<p>The Center for Disease Control (CDC) and American Academy of Pediatrics (AAP) <a href="https://www.cdc.gov/nccdphp/dnpao/growthcharts/who/recommendations/index.htm">recommend</a> using the WHO growth standards for children in the United States under 2 years old. To calculate the age- and sex-adjusted BMI z-scores for the children in the NHANES dataset using the WHO reference charts we can do the following:</p>
+<pre class="r"><code>child_who &lt;- child_df %&gt;%
+  filter(agemos &lt; 24) %&gt;%
+  mutate(
+    bmi = weight_kg/((length_cm/100)^2) ,
+    agedays = growthstandards::months2days(agemos),
+    # measurements to bmi z-score
+    bmiz = growthstandards::who_bmi2zscore(
+      agedays = agedays,
+      bmi = bmi,
+      sex = sex),
+    # measurements to percentiles
+    bmipct = growthstandards::who_bmi2centile(
+      agedays = agedays, 
+      bmi = bmi, 
+      sex = sex),
+    # find the 95th percentile for age and sex
+    p95 = growthstandards::who_centile2bmi(
+      agedays = agedays, 
+      p = 95, 
+      sex = sex),
+    # calculate the percentage of the 95th
+    bmipct95 = (bmi/p95)*100,
+    # obesity?
+    obesity = if_else(bmipct &gt;= 95, 1, 0))
+
+
+child_who %&gt;%
+  select(bmi, bmiz, bmipct, bmipct95, obesity) %&gt;%
+  skimr::skim()</code></pre>
+<pre><code>## Skim summary statistics
+##  n obs: 634 
+##  n variables: 5 
+## 
+## ── Variable type:numeric ───────────────────────────────────────────
+##  variable missing complete   n  mean    sd     p0    p25   p50   p75
+##       bmi       4      630 634 17.24  1.67 11.63  16.17  17.17 18.34
+##    bmipct       4      630 634 65.78 26.93  0.015 47.82  71.54 89.13
+##  bmipct95       4      630 634 91.47  8.25 64.85  86.21  90.89 96.41
+##      bmiz       4      630 634  0.57  1.03 -3.62  -0.055  0.57  1.23
+##   obesity       4      630 634  0.14  0.35  0      0      0     0   
+##    p100     hist
+##   27.77 ▁▂▇▅▁▁▁▁
+##  100    ▁▂▂▂▃▅▅▇
+##  142.17 ▁▃▇▅▁▁▁▁
+##    5.56 ▁▁▃▇▅▁▁▁
+##    1    ▇▁▁▁▁▁▁▁</code></pre>
+<p>Density plots of our new values:</p>
+<pre class="r"><code>vars &lt;- c(&quot;bmi&quot;, &quot;bmiz&quot;, &quot;bmipct&quot;, &quot;bmipct95&quot;)
+sub &lt;- &quot;Using WHO growth charts from growthstandards package&quot;
+
+density_fun &lt;- function(xvar, df, sub) {
+  myplot &lt;- ggplot(df, aes_string(x = xvar)) +
+    geom_density() +
+    labs(title = paste0(&quot;Density plot of &quot;, xvar),
+         subtitle = sub) +
+    r_ladies_theme() 
+  
+  plot(myplot)
+}
+
+purrr::walk(.x = vars, .f = density_fun, df = child_who, sub = sub)</code></pre>
+<pre><code>## Warning: Removed 4 rows containing non-finite values (stat_density).</code></pre>
+<p><img src="/post/2018-06-06-roundup-of-growth-chart-packages_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<pre><code>## Warning: Removed 4 rows containing non-finite values (stat_density).</code></pre>
+<p><img src="/post/2018-06-06-roundup-of-growth-chart-packages_files/figure-html/unnamed-chunk-8-2.png" width="672" /></p>
+<pre><code>## Warning: Removed 4 rows containing non-finite values (stat_density).</code></pre>
+<p><img src="/post/2018-06-06-roundup-of-growth-chart-packages_files/figure-html/unnamed-chunk-8-3.png" width="672" /></p>
+<pre><code>## Warning: Removed 4 rows containing non-finite values (stat_density).</code></pre>
+<p><img src="/post/2018-06-06-roundup-of-growth-chart-packages_files/figure-html/unnamed-chunk-8-4.png" width="672" /></p>
+</div>
+<div id="zscorer" class="section level1">
+<h1>zscorer</h1>
+<p>The <a href="https://nutriverse.validmeasures.org/zscorer/">zscorer</a> package is developed by Mark Myatt and Ernest Guevarra.</p>
+<blockquote>
+<p>zscorer refers to the results of the WHO Multicentre Growth Reference Study as standard for calculating the z-scores hence it comes packaged with this reference data.</p>
+</blockquote>
+<p>The WHO Multicentre Growth Reference Study combined longitudinal data for children from birth to 24 months and cross-sectional data for children up to 71 months</p>
+<pre class="r"><code>install.packages(&quot;zscorer&quot;)</code></pre>
+<p>The authors note that:</p>
+<blockquote>
+<p>The function fails messily when secondPart is outside of the range given in the WGS reference (i.e. 45 to 120 cm for height and 0 to 60 months for age). It is up to you to check the ranges of your data.</p>
+</blockquote>
+<p>Because this function is meant for a specific age and height range, I’ll filter the data first.</p>
+<pre class="r"><code>zscorer_df &lt;- child_df %&gt;%
+  filter(agemos &lt; 60) %&gt;%
+  filter(height_length_cm &lt; 120,
+         height_length_cm &gt; 45) %&gt;%
+  select(id, sex_num, height_length_cm, weight_kg, agemos) %&gt;%
+  drop_na() %&gt;%
+  as.data.frame() # cannot be type tbl_df
+
+library(zscorer)
+
+# height for age z-score
+zscorer_df$haz &lt;- getCohortWGS(data = zscorer_df,
+                                 sexObserved = &quot;sex_num&quot;,
+                                 firstPart = &quot;height_length_cm&quot;,
+                                 secondPart = &quot;agemos&quot;,
+                                 index = &quot;hfa&quot;)
+# weight for age z-score
+zscorer_df$waz &lt;- getCohortWGS(data = zscorer_df,
+                                 sexObserved = &quot;sex_num&quot;,
+                                 firstPart = &quot;weight_kg&quot;,
+                                 secondPart = &quot;agemos&quot;,
+                                 index = &quot;wfa&quot;)
+# weight fot height z-score
+zscorer_df$whz &lt;- getCohortWGS(data = zscorer_df,
+                                 sexObserved = &quot;sex_num&quot;,
+                                 firstPart = &quot;weight_kg&quot;,
+                                 secondPart = &quot;height_length_cm&quot;,
+                                 index = &quot;wfh&quot;)
+
+zscorer_df %&gt;%
+  select(haz, waz, whz) %&gt;%
+  skimr::skim()</code></pre>
+<pre><code>## Skim summary statistics
+##  n obs: 1246 
+##  n variables: 3 
+## 
+## ── Variable type:numeric ───────────────────────────────────────────
+##  variable missing complete    n  mean   sd    p0    p25    p50  p75 p100
+##       haz       0     1246 1246 -0.04 1.05 -3.64 -0.72  -0.057 0.61 3.6 
+##       waz       0     1246 1246  0.43 1.07 -3.36 -0.26   0.41  1.09 6.2 
+##       whz       0     1246 1246  0.62 1.05 -3.48 -0.034  0.55  1.24 6.46
+##      hist
+##  ▁▁▃▇▇▃▁▁
+##  ▁▂▆▇▂▁▁▁
+##  ▁▁▆▇▂▁▁▁</code></pre>
+</div>
+<div id="childsds-package" class="section level1">
+<h1>childsds package</h1>
+<p>The <a href="https://github.com/mvogel78/childsds">childsds</a> package by Mandy Vogel has child reference data from many other countries (WHO, UK, Germany, Italy, China, and more).</p>
+<pre class="r"><code>install.packages(&quot;chilsds&quot;)</code></pre>
+<p>You can obtain information about the reference data by doing:</p>
+<pre class="r"><code>childsds::cdc.ref</code></pre>
+<pre><code>## *** Group of Reference Tables ***
+## [1] &quot;CDC containing 8 reference tables&quot;
+## 
+## *** Table of Reference Values ***
+## [1] &quot;bmi fitted with: male BCCG, female BCCG&quot;
+##           sex minage   maxage
+## male     male      2 20.04167
+## female female      2 20.04167
+## 
+## *** Table of Reference Values ***
+## [1] &quot;height fitted with: male BCCG, female BCCG&quot;
+##           sex minage   maxage
+## male     male      0 2.958333
+## female female      0 2.958333
+## 
+## *** Table of Reference Values ***
+## [1] &quot;height2 fitted with: male BCCG, female BCCG&quot;
+##           sex minage maxage
+## male     male      2     20
+## female female      2     20
+## 
+## *** Table of Reference Values ***
+## [1] &quot;weight fitted with: male BCCG, female BCCG&quot;
+##           sex minage maxage
+## male     male      0      3
+## female female      0      3
+## 
+## *** Table of Reference Values ***
+## [1] &quot;hc fitted with: male BCCG, female BCCG&quot;
+##           sex minage maxage
+## male     male      0      3
+## female female      0      3
+## 
+## *** Table of Reference Values ***
+## [1] &quot;wfl fitted with: male BCCG, female BCCG&quot;
+##           sex minage maxage
+## male     male     45  103.5
+## female female     45  103.5
+## 
+## *** Table of Reference Values ***
+## [1] &quot;wfl2 fitted with: male BCCG, female BCCG&quot;
+##           sex minage maxage
+## male     male     77  121.5
+## female female     77  121.5
+## 
+## *** Table of Reference Values ***
+## [1] &quot;weight2_20 fitted with: male BCCG, female BCCG&quot;
+##           sex minage maxage
+## male     male      2     20
+## female female      2     20
+## [1] &quot;Flegal, Katherine M., and T. J. Cole. Construction of LMS Parameters for the Centers for Disease Control and Prevention 2000 Growth Charts. Hational health statitics reports 63.&quot;
+## [1] &quot;bmi - bmi&quot;
+## [1] &quot;height0_3 - height 0 - 3 years old&quot;
+## [1] &quot;height2_20 - height 2- 20 years old&quot;
+## [1] &quot;weight -  - weight 0 - 3 years old&quot;
+## [1] &quot;weight2_20 - weight 2- 20 years old&quot;
+## [1] &quot;hc - headcircumference&quot;
+## [1] &quot;wfl - weight for length&quot;
+## [1] &quot;wfl and wfls - age must refer to the length variable; the function gives the sds for a given weight conditional on height&quot;
+## [1] &quot;use one of the following keys: bmi - height0_3 - height2_20 - weight - hc - wfl - wfl2 - weight2_20&quot;</code></pre>
+<p>We can calculate the BMI z-score and percentile given the reference charts:</p>
+<pre class="r"><code>library(childsds)
+
+childsds_df &lt;- child_df %&gt;%
+  filter(agemos &gt;= 24) %&gt;%
+  mutate(bmiz = sds(bmi,
+                    age = ageyears,
+                    sex = sex, male = &quot;Male&quot;, female =  &quot;Female&quot;,
+                    ref = cdc.ref,
+                    item = &quot;bmi&quot;,
+                    type = &quot;SDS&quot;),
+         bmipct = round(pnorm(bmiz)*100,2),
+         # or use sds function and type = &quot;perc&quot;
+         bmipct2 = sds(bmi,
+                    age = ageyears,
+                    sex = sex, male = &quot;Male&quot;, female =  &quot;Female&quot;,
+                    ref = cdc.ref,
+                    item = &quot;bmi&quot;,
+                    type = &quot;perc&quot;)) %&gt;% 
+  glimpse() </code></pre>
+<pre><code>## Observations: 3,426
+## Variables: 14
+## $ id               &lt;dbl&gt; 83738, 83739, 83743, 83745, 83746, 83748, 837...
+## $ agemos           &lt;dbl&gt; 141, 54, 217, 185, 52, 41, 210, 196, 182, 194...
+## $ sex_num          &lt;dbl&gt; 2, 1, 1, 2, 2, 1, 2, 2, 1, 1, 2, 2, 2, 1, 2, ...
+## $ bmi              &lt;dbl&gt; 18.1, 15.7, 26.2, 25.0, 16.1, 16.1, 29.0, 22....
+## $ height_cm        &lt;dbl&gt; 143.5, 102.1, 166.1, 169.2, 105.0, 103.6, 161...
+## $ length_cm        &lt;dbl&gt; NA, NA, NA, NA, NA, 104.2, NA, NA, NA, NA, NA...
+## $ weight_kg        &lt;dbl&gt; 37.2, 16.4, 72.4, 71.7, 17.7, 17.3, 75.9, 51....
+## $ sex_mf           &lt;chr&gt; &quot;F&quot;, &quot;M&quot;, &quot;M&quot;, &quot;F&quot;, &quot;F&quot;, &quot;M&quot;, &quot;F&quot;, &quot;F&quot;, &quot;M&quot;, ...
+## $ sex              &lt;chr&gt; &quot;Female&quot;, &quot;Male&quot;, &quot;Male&quot;, &quot;Female&quot;, &quot;Female&quot;,...
+## $ height_length_cm &lt;dbl&gt; 143.5, 102.1, 166.1, 169.2, 105.0, 103.6, 161...
+## $ ageyears         &lt;dbl&gt; 11.750000, 4.500000, 18.083333, 15.416667, 4....
+## $ bmiz             &lt;dbl&gt; 0.06918427, 0.16255051, 1.14597646, 1.1663773...
+## $ bmipct           &lt;dbl&gt; 52.76, 56.46, 87.41, 87.83, 73.79, 58.83, 93....
+## $ bmipct2          &lt;dbl&gt; 52.76, 56.46, 87.41, 87.83, 73.79, 58.83, 93....</code></pre>
+<p>Plot the values:</p>
+<pre class="r"><code>sub &lt;- &quot;Using CDC growth charts from childsds package&quot;
+vars &lt;- c(&quot;bmiz&quot;, &quot;bmipct&quot;)
+  
+purrr::walk(.x = vars, .f = density_fun, df = childsds_df, sub = sub)</code></pre>
+<pre><code>## Warning: Removed 86 rows containing non-finite values (stat_density).</code></pre>
+<p><img src="/post/2018-06-06-roundup-of-growth-chart-packages_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<pre><code>## Warning: Removed 86 rows containing non-finite values (stat_density).</code></pre>
+<p><img src="/post/2018-06-06-roundup-of-growth-chart-packages_files/figure-html/unnamed-chunk-14-2.png" width="672" /></p>
+</div>
+<div id="other-work" class="section level1">
+<h1>Other work</h1>
+<p>There is some other publicly available work in this research area:</p>
+<ul>
+<li><p><a href="https://github.com/statist7/sitar">SITAR</a>: SuperImposition by Translation And Rotation model by Tim Cole and colleagues. The SITAR package provides functions for fitting and plotting growth curve models. More background information can be found <a href="SuperImposition%20by%20Translation%20And%20Rotation">here</a>.</p></li>
+<li><p><a href="https://cpeg-gcep.net/content/who-macro-files-cpeg-revision">Canadian Pediatric Endocrine Group</a>: This group has made available SAS, R, an Stata programs for the WHO growth charts, an R script for <a href="https://cpeg-gcep.net/content/waist-circumference-and-waist-height-ratio-charts">waist circumference z-scores</a> (NHANES, cycle III), and an R script for the preterm z-scores (Fenton reference). They have also published many <a href="https://cpeg-gcep.net/content/shiny-apps">shiny apps</a>!</p></li>
+</ul>
+<hr />
+<p>Please comment if you have found something that I’m missing. I will write a second post with thoughts on what to do next with our unconf project, mchtoolbox.</p>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Thanks <a href="https://twitter.com/learithe">Jenny Draper</a>, <a href="https://twitter.com/jent103">Jennifer Thompson</a>, <a href="https://twitter.com/kylehamilton">Kyle Hamilton</a>, and <a href="https://twitter.com/cantabile">Charles Gray</a> for being on this team!<a href="#fnref1">↩</a></p></li>
+<li id="fn2"><p>Thanks <a href="https://maraaverick.rbind.io/2018/06/meta-sods18-a-call-to-curation/">Mara</a> for the encouragement!<a href="#fnref2">↩</a></p></li>
+</ol>
+</div>
+
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="/tags/agd/">agd</a>
+
+  <a class="tag tag--primary tag--small" href="/tags/bmi/">bmi</a>
+
+  <a class="tag tag--primary tag--small" href="/tags/childsds/">childsds</a>
+
+  <a class="tag tag--primary tag--small" href="/tags/growthchart/">growthchart</a>
+
+  <a class="tag tag--primary tag--small" href="/tags/growthstandards/">growthstandards</a>
+
+  <a class="tag tag--primary tag--small" href="/tags/zscorer/">zscorer</a>
+
+                  </div>
+                
+              
+            
+            
+  <div class="post-actions-wrap">
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2018/06/what-i-ve-learned-about-using-redcap-with-r/" data-tooltip="What I’ve learned about using REDCap with R">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=/2018/07/roundup-of-growth-chart-packages/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/2018/07/roundup-of-growth-chart-packages/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2018 Monica W. Gerber. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        
+  <div class="post-actions-wrap">
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2018/06/what-i-ve-learned-about-using-redcap-with-r/" data-tooltip="What I’ve learned about using REDCap with R">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=/2018/07/roundup-of-growth-chart-packages/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/2018/07/roundup-of-growth-chart-packages/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=%2F2018%2F07%2Froundup-of-growth-chart-packages%2F">
+          <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=%2F2018%2F07%2Froundup-of-growth-chart-packages%2F">
+          <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="//www.gravatar.com/avatar/31eb95d94a3d5c0b77d3d585306da579?s=110" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Monica W. Gerber</h4>
+    
+      <div id="about-card-bio">Hi, I&rsquo;m a Biostatistician // Epidemiologist // Data Scientist. I use data science to understand and improve population health.</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Biostatistician
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Boston, MA
+      </div>
+    
+  </div>
+</div>
+
+    <div id="algolia-search-modal" class="modal-container">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="close-button"><i class="fa fa-close"></i></span>
+      <a href="https://algolia.com" target="_blank" rel="noopener" class="searchby-algolia text-color-light link-unstyled">
+        <span class="searchby-algolia-text text-color-light text-small">by</span>
+        <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+      </a>
+      <i class="search-icon fa fa-search"></i>
+      <form id="algolia-search-form">
+        <input type="text" id="algolia-search-input" name="search"
+          class="form-control input--large search-input" placeholder="Search" />
+      </form>
+    </div>
+    <div class="modal-body">
+      <div class="no-result text-color-light text-center">no post found</div>
+      <div class="results">
+        
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="/2018/07/roundup-of-growth-chart-packages/">
+                <h3 class="media-heading">Roundup of growth chart packages</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jul 7, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">At rOpenSci’s annual unconf, I suggested a project to work on functions that convert physical growth measurements into z-scores and percentiles. For example, researchers in the United States studying childhood obesity often calculate the BMI z-score or percentage of the 95th percentile of BMI from nationally representative survey data.
+During the process of brainstorming and working on this project, the team1 I was working with found out some related R packages that do this.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="/2018/06/what-i-ve-learned-about-using-redcap-with-r/">
+                <h3 class="media-heading">What I’ve learned about using REDCap with R</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jun 6, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">When I started at my current job back fresh out of grad school in January 2015, I had only coded in SAS1 and the the lab I joined was storing data in SPSS spreadsheets–1 file for each patient (:scream:). As you can imagine, I needed to figure out something better and fast. Luckily, my institution had REDCap so I started getting us more organized by putting our data in a REDCap database.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="/2018/05/visualizing-outcomes-in-epidemiology-with-joy-plots/">
+                <h3 class="media-heading">Visualizing experimental data with ridgeline plots</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  May 5, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">I’m a bit late to the ridgeline plot craze of 2017, but recently became a fan of using these plots for visualizing body mass index (BMI; a measure used to screen for body fatness) outcomes in clinical research. We often measure BMI at multiple time points during a clinical trial, and physicians want to know how the distribution of BMI is shifting. Ridgeline plots are a perfect way to look at these distributions over time.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="/2018/04/improving-biostatistics-workflows-with-purr/">
+                <h3 class="media-heading">Improving biostatistics workflows with purr</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Apr 4, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Some datasets
+ Data is plural https://tinyletter.com/data-is-plural CDC ? https://www.cdc.gov/  </div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="/2018/04/reflections-on-rstudio-conf-2018/">
+                <h3 class="media-heading">Reflections on rstudio::conf 2018</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Apr 4, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">It’s been a couple of months since rstudio::conf 2018 and I’m still mulling over what I learned in 2 days in San Diego. I grew up in the sunshine of San Diego, so it was good to be back and also feel inspired by the amazing energy of the R community. Here’s a reflection on what the conference was like, what ideas I’ve been running with, and how what I learned will change what I do over the course of the next year.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="/2018/03/scraping-the-mmwr-with-rvest/">
+                <h3 class="media-heading">Scraping the MMWR with rvest</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Mar 3, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">rvest in action First, we need to create a html document from the URL of the page we want using read_html().
+library(rvest) cdc_site &lt;- read_html(&quot;http://www.cdc.gov/mmwr/volumes/65/wr/mm6545a2.htm?s_cid=mm6545a2_w&quot;) After we have the html document, we need to select part of the document using CSS selectors. I read up on selectorgadget (see rvest, /Library/Frameworks/R.framework/Versions/3.4/Resources/library/rvest, selectorgadget, selectorgadget.Rmd, Selectorgadget, selectorgadget.R, selectorgadget.html) to help me figure out which selector to use. However, for this task, I found it easier to just extract the type of element we want, which is the table.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="/2018/03/little-bit-of-monica/">
+                <h3 class="media-heading">A little bit of Monica in my life</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Mar 3, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">One analysis in the R community that caught my attention is Hilary Parker’s analysis of the most poisoned baby name in US history. I was surprised that my own name didn’t show up in the analysis. If Hilary had a huge loss in 1993, what happened to Monica in 1999?
+For a period when I was a kid the name ‘Monica’ is what made the adults turn down the NPR broadcast.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="/2018/01/hello-world/">
+                <h3 class="media-heading">Hello, world!</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">About my work My name is Monica Gerber and I am a Biostatistician located in Boston, Massachusetts. I started working at Massachusetts General Hospital (MGH) in January 2015, when I joined the Department of Psychiatry to work in a research group focused on population mental health. Currently, I work in General Academic Pediatrics and the Center for Community Health Improvement (CCHI).
+At MGH I have the pleasure of working on many research and evaluation projects.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+      </div>
+    </div>
+    <div class="modal-footer">
+      <p class="results-count text-medium"
+         data-message-zero="no post found"
+         data-message-one="1 post found"
+         data-message-other="{n} posts found">
+         8 posts found
+      </p>
+    </div>
+  </div>
+</div>
+    
+  
+    
+    <div id="cover" style="background-image:url('/images/boston-public-garden-winter.JPG');"></div>
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="/js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
+
+
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = '\/2018\/07\/roundup-of-growth-chart-packages\/';
+          
+            this.page.identifier = '\/2018\/07\/roundup-of-growth-chart-packages\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'monica-gerber-1';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+    
+  </body>
+</html>
+
